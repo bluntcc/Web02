@@ -32,7 +32,7 @@ export default {
       renderer: 'svg',
       loop: this.options.loop !== false,
       autoplay: this.options.autoplay !== false,
-      animationData: this.options.animationData
+      path: this.options.path
     })
     this.$emit('animCreated', this.anim)
   },

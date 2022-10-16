@@ -14,7 +14,6 @@
 
 <script>
 import Lottie from './clickIcon.vue'
-import animationData from '../../assets/123283-shape-animation.json'
 
 export default {
   name: 'like',
@@ -49,9 +48,9 @@ export default {
       toggleFlag: false,
       defaultOptions: {
         name: 'like',
-        animationData: animationData,
-        autoplay: false,
-        loop: false
+        path: '/static/123283-shape-animation.json',
+        autoplay: true,
+        loop: true
       }
     }
   }
