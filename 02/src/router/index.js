@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import ElementTest from '../components/ui/ElementTest'
 import like from '../components/animation/like'
+import Game from './Game'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/Lottie',
       name: 'Lottie',
       component: like
+    },
+    {
+      path: '/games',
+      name: 'games',
+      component: Game
     }
   ]
 })
