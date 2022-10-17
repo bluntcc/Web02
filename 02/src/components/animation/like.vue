@@ -49,8 +49,8 @@ export default {
       defaultOptions: {
         name: 'like',
         path: '/static/123283-shape-animation.json',
-        autoplay: true,
-        loop: true
+        autoplay: false,
+        loop: false
       }
     }
   }

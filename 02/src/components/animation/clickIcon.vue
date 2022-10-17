@@ -5,8 +5,8 @@
       :style="{ width: width + 'px', height: height + 'px' }"
     >
       <slot name="svg" v-bind:data="{ toggle, flag, iconWidth, iconHeight }"></slot>
+      <el-button @click="toggle"> 开始 </el-button>
       <lottie
-        @click="toggle"
         :class="{ show: flag === true || !defaultSlot }"
         class="like"
         style="display: none;"
@@ -21,7 +21,7 @@
 
 <script>
 import { computed, ref, defineComponent } from 'vue'
-import Lottie from './Lottie.vue'
+import Lottie from './lottie.vue'
 let anim = null
 /**
  * 点击icon然后播放一段动画的组件
@@ -34,12 +34,12 @@ export default defineComponent({
     // 宽度
     width: {
       type: Number,
-      default: 100
+      default: 300
     },
     // 高度
     height: {
       type: Number,
-      default: 100
+      default: 300
     },
     // 初始化Lottie需要的参数
     options: {
