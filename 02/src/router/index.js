@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import ElementTest from '../components/ui/ElementTest'
 import like from '../components/animation/like'
 import Game from './Game'
+import VideoTest from './VideoTest'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/games',
       name: 'games',
       component: Game
+    },
+    {
+      path: '/video',
+      name: 'video',
+      component: VideoTest
     }
   ]
 })
