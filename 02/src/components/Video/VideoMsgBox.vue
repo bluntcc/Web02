@@ -1,8 +1,8 @@
 <template>
   <div>
-    <el-button type="text" @click="OpenVideo">点击打开 Message Box</el-button>
-    <el-dialog :title="desc" :visible.sync="dialogTableVisible" @close="CloseVideo" :destroy-on-close="true" :width="boxWidth">
-      <player-video v-if="dialogTableVisible" id="playerVideo" :volume="volume" ref="video" :src="src" class="video-content"></player-video>
+    <el-button type="text" @click="OpenVideo">点击打开视频</el-button>
+    <el-dialog :title="desc" :visible.sync="dialogVideoVisible" @close="CloseVideo" :destroy-on-close="true" :width="boxWidth">
+      <player-video v-if="dialogVideoVisible" id="playerVideo" :volume="volume" ref="video" :src="src" class="video-content"></player-video>
     </el-dialog>
   </div>
 </template>
@@ -43,12 +43,12 @@ export default {
       // this.video.stop()
     },
     OpenVideo () {
-      this.dialogTableVisible = true
+      this.dialogVideoVisible = true
     }
   },
   data () {
     return {
-      dialogTableVisible: false
+      dialogVideoVisible: false
     }
   }
 }

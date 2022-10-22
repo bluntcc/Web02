@@ -2,24 +2,27 @@
   <div>
     <gameStep :game-step-des-list = "gameStepDesList" :game-step-info-list = "gameStepInfoList" :active = "active" v-on:setGameStep="setGameStep"></gameStep>
     <video-msg-box :src="gameStepVideoList[active]" :desc="gameStepVideoDescList[active]"></video-msg-box>
+    <text-desc-dialog :descriptions="gameStepTextDescList[active]" :title="gameStepTextDescTitleList[active]" :image-u-r-l="gameStepTextDescImageList[active]"></text-desc-dialog>
   </div>
 </template>
 
 <script>
 import gameStep from '../components/ui/GameStep'
 import videoMsgBox from '../components/Video/VideoMsgBox'
+import textDescDialog from '../components/ui/TextDescDialog'
 export default {
   name: 'Game',
   components: {
     gameStep: gameStep,
-    videoMsgBox: videoMsgBox
+    videoMsgBox: videoMsgBox,
+    textDescDialog: textDescDialog
   },
   methods: {
     setGameStep: function (currentActiveIndex) {
       this.active = currentActiveIndex
     }
   },
-  data () {
+  data: function () {
     return {
       gameStepInfoList: [
         '步骤1', '步骤2', '步骤3'
@@ -28,6 +31,7 @@ export default {
         '这是一段很长很长很长的描述性文字', '这是一段很长很长很长的描述性文字', '这是一段很长很长很长的描述性文字'
       ],
       active: 0,
+      // video 数据
       gameStepVideoList: [
         'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm',
         'http://vjs.zencdn.net/v/oceans.mp4',
@@ -37,7 +41,24 @@ export default {
         'Test1',
         'Test2',
         'Test3'
+      ],
+      // 文字弹窗数据
+      gameStepTextDescList: [
+        '描述1',
+        '描述2',
+        '描3'
+      ],
+      gameStepTextDescTitleList: [
+        'Title1',
+        'Title2',
+        'Title3'
+      ],
+      gameStepTextDescImageList: [
+        'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
+        'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
+        'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png'
       ]
+      // 单选弹窗数据
     }
   }
 }
