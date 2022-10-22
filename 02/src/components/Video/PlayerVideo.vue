@@ -3,8 +3,7 @@
     ref="video"
     controls
     class="video-js vjs-default-skin vjs-big-play-centered"
-    width="600"
-    height="400"
+    width= 100%
   >
     <source :src="src" />
   </video>

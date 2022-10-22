@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-button type="text" @click="OpenVideo">点击打开 Message Box</el-button>
-    <el-dialog :title="desc" :visible.sync="dialogTableVisible" @close="CloseVideo" :destroy-on-close="true">
+    <el-dialog :title="desc" :visible.sync="dialogTableVisible" @close="CloseVideo" :destroy-on-close="true" :width="boxWidth">
       <player-video v-if="dialogTableVisible" id="playerVideo" :volume="volume" ref="video" :src="src" class="video-content"></player-video>
     </el-dialog>
   </div>
@@ -27,6 +27,10 @@ export default {
     volume: {
       type: Number,
       default: 1
+    },
+    boxWidth: {
+      type: String,
+      default: '90%'
     }
   },
   computed: {
@@ -56,7 +60,7 @@ export default {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-right: 10px;
   width: 100%;
+  height: 300px;
 }
 </style>
