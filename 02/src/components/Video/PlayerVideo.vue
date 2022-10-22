@@ -56,7 +56,7 @@ export default {
   },
   mounted () {
     const _this = this
-    this.player = this.$video(this.$refs.video, this.options, function () {
+    this.player = this.$video(this.$refs.video, {autoplay: true}, function () {
       this.on('volumechange', () => {
         // 存储音量
         _this.volumeVideo = this.volume()

@@ -13,6 +13,7 @@
       <el-button class="primary" @click="volumeDownVideo">降低音量</el-button>
       <el-button class="primary" @click="toggleToFenghuangwang">凤凰卫视</el-button>
       <el-button class="primary" @click="toggleToDefault">默认频道</el-button>
+      <el-button class="primary" @click="fullScreenVideo">全屏</el-button>
     </div>
   </div>
 </template>

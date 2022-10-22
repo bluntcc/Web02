@@ -1,8 +1,11 @@
 <template>
-  <el-steps :active="active" align-center>
+  <div>
+    <el-button @click="handlePreviousClick">上一步</el-button>
+    <el-steps :active="active" align-center>
       <el-step :title= "gameStepInfo" :description="gameStepDesList[gameStepInfoIndex]" :key="gameStepInfoIndex" v-for="(gameStepInfo,gameStepInfoIndex) in gameStepInfoList"></el-step>
-      <el-button @click="handleClick">下一步</el-button>
-  </el-steps>
+    </el-steps>
+    <el-button @click="handleNextClick">下一步</el-button>
+  </div>
 </template>
 
 <script>
@@ -23,8 +26,13 @@ export default {
     }
   },
   methods: {
-    handleClick () {
-      this.active = this.active < 2 ? this.active + 1 : 0
+    handleNextClick () {
+      const currentActiveIndex = this.active < this.gameStepDesList.length - 1 ? this.active + 1 : 0
+      this.$emit('setGameStep', currentActiveIndex)
+    },
+    handlePreviousClick () {
+      const currentActiveIndex = this.active > 0 ? this.active - 1 : 0
+      this.$emit('setGameStep', currentActiveIndex)
     }
   }
 }

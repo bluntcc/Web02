@@ -18,6 +18,7 @@
     "lottie-web": "^5.9.6",
     "lottie-web-vue": "^1.2.1",
     "video.js": "^7.20.3",
+    "videojs-contrib-hls": "^5.15.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
