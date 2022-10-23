@@ -3,7 +3,7 @@
     <gameStep :game-step-des-list = "gameStepDesList" :game-step-info-list = "gameStepInfoList" :active = "active" v-on:setGameStep="setGameStep"></gameStep>
     <video-msg-box :src="gameStepVideoList[active]" :desc="gameStepVideoDescList[active]"></video-msg-box>
     <text-desc-dialog :descriptions="gameStepTextDescList[active]" :title="gameStepTextDescTitleList[active]" :image-u-r-l="gameStepTextDescImageList[active]"></text-desc-dialog>
-    <single-box :question="gameSingleBoxQuestion" :singleBoxList="gameSingleBoxList" :correctAnswer="gameSingleBoxCorrectAnswer" :imageURL="gameSingleBoxImages"></single-box>
+    <single-box :singleBoxTitle="gameSingleBoxTitle" :question="gameSingleBoxQuestion" :singleBoxList="gameSingleBoxList" :correctAnswer="gameSingleBoxCorrectAnswer" :imageURL="gameSingleBoxImages"></single-box>
   </div>
 </template>
 
@@ -62,6 +62,7 @@ export default {
         'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png'
       ],
       // 单选弹窗数据
+      gameSingleBoxTitle: '这是一个单选框',
       gameSingleBoxQuestion: 'now we want to be stronger,what can I do?',
       gameSingleBoxImages: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
       gameSingleBoxList: [
