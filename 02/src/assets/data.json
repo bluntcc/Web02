@@ -1,0 +1,74 @@
+{
+  "GameStep": [
+    {
+      "StepName": "阶段1",
+      "SubStep": [
+        {
+          "SubStepName": "子阶段1",
+          "SubStepDesc": "子阶段1描述",
+          "SubStepType": 0,
+          "SubStepInfo": {
+            "VideoUrl": "http://vjs.zencdn.net/v/oceans.mp4",
+            "VideoDesc": "视频1 描述",
+            "VideoTitle": "视频1 Title"
+          }
+        },
+        {
+          "SubStepName": "子阶段1",
+          "SubStepDesc": "子阶段2描述",
+          "SubStepType": 0,
+          "SubStepInfo":{
+            "VideoUrl": "https://www.w3schools.com/html/movie.mp4",
+            "VideoDesc": "视频2 描述",
+            "VideoTitle": "视频2 Title"
+          }
+        },
+        {
+          "SubStepName": "子阶段1",
+          "SubStepDesc": "子阶段3描述",
+          "SubStepType": 1,
+          "SubStepInfo":{
+            "TextImageUrl": "https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png",
+            "TextDesc": "文本3 描述",
+            "TextTitle": "文本3 Title"
+          }
+        }
+      ]
+    },
+    {
+      "StepName": "阶段2",
+      "SubStep": [
+        {
+          "SubStepName": "子阶段2",
+          "SubStepDesc": "子阶段1描述",
+          "SubStepType": 0,
+          "SubStepInfo":{
+            "VideoUrl": "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm",
+            "VideoDesc": "视频1 描述",
+            "VideoTitle": "视频1 Title"
+          }
+        },
+        {
+          "SubStepName": "子阶段2",
+          "SubStepDesc": "子阶段2描述",
+          "SubStepType": 1,
+          "SubStepInfo":{
+            "TextImageUrl": "https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png",
+            "TextDesc": "文本2 描述",
+            "TextTitle": "文本2 Title"
+          }
+        },
+        {
+          "SubStepName": "子阶段3",
+          "SubStepDesc": "子阶段3miaoshu",
+          "SubStepType": 2,
+          "SubStepInfo":{
+            "TextImageUrl": "https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png",
+            "TextDesc": "文本2 描述",
+            "TextTitle": "文本2 Title"
+          }
+        }
+      ]
+    }
+  ]
+}
