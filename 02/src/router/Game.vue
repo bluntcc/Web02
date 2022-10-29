@@ -3,6 +3,7 @@
     <gameStep :game-step-des-list = "gameStepDesList" :game-step-info-list = "gameStepInfoList" :active = "active" v-on:setGameStep="setGameStep"></gameStep>
     <video-msg-box :src="gameStepVideoList[active]" :desc="gameStepVideoDescList[active]"></video-msg-box>
     <text-desc-dialog :descriptions="gameStepTextDescList[active]" :title="gameStepTextDescTitleList[active]" :image-u-r-l="gameStepTextDescImageList[active]"></text-desc-dialog>
+    <single-box :singleBoxTitle="gameSingleBoxTitle" :question="gameSingleBoxQuestion" :singleBoxList="gameSingleBoxList" :correctAnswer="gameSingleBoxCorrectAnswer" :imageURL="gameSingleBoxImages"></single-box>
   </div>
 </template>
 
@@ -10,12 +11,14 @@
 import gameStep from '../components/ui/GameStep'
 import videoMsgBox from '../components/Video/VideoMsgBox'
 import textDescDialog from '../components/ui/TextDescDialog'
+import singleBox from '../components/ui/SingleBox.vue'
 export default {
   name: 'Game',
   components: {
     gameStep: gameStep,
     videoMsgBox: videoMsgBox,
-    textDescDialog: textDescDialog
+    textDescDialog: textDescDialog,
+    singleBox: singleBox
   },
   methods: {
     setGameStep: function (currentActiveIndex) {
@@ -57,8 +60,17 @@ export default {
         'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
         'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
         'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png'
-      ]
+      ],
       // 单选弹窗数据
+      gameSingleBoxTitle: '这是一个单选框',
+      gameSingleBoxQuestion: 'now we want to be stronger,what can I do?',
+      gameSingleBoxImages: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
+      gameSingleBoxList: [
+        'list one',
+        'list two',
+        'list three'
+      ],
+      gameSingleBoxCorrectAnswer: 'list one'
     }
   }
 }
