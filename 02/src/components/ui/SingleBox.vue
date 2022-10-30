@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'textDescDialog',
+  name: 'SingleBox',
   props: {
     singleBoxTitle: {
       type: String,

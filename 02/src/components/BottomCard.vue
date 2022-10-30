@@ -4,6 +4,7 @@
     <video-msg-box v-if="currentSubStepType === 0" :src="currentVideoSrc" :desc="currentVideoDescriptions"></video-msg-box>
     <text-desc-dialog v-if="currentSubStepType === 1" :descriptions="currentTextDescriptions" :title="currentTextTitle" :image-u-r-l="currentImageUrl"></text-desc-dialog>
     <single-box v-if="currentSubStepType === 2" :singleBoxTitle="currentSingleBoxTitle" :question="currentSingleBoxQuestion" :singleBoxList="currentSingleBoxList" :correctAnswer="currentSingleBoxCorrectAnswer" :imageURL="currentSingleBoxImages"></single-box>
+    <multi-box v-if="currentSubStepType === 3" :multi-box-title="currentMultiBoxTitle" :question="currentMultiBoxQuestion" :multi-box-list="currentMultiBoxList" :correct-answer="currentMultiBoxCorrectAnswer" :image-u-r-l="currentMultiBoxImages"></multi-box>
   </div>
 </template>
 
@@ -14,10 +15,12 @@ import textDescDialog from '../components/ui/TextDescDialog'
 import data from '../assets/data.json'
 import GameStepMini from '../components/ui/GameStepMini'
 import singleBox from './ui/SingleBox'
+import MultiBox from './ui/MultiBox'
 
 export default {
   name: 'BottomCard',
   components: {
+    MultiBox,
     GameStepMini,
     gameStep: gameStep,
     videoMsgBox: videoMsgBox,
@@ -34,6 +37,8 @@ export default {
   },
   methods: {
     changeGameStepInfo: function (gameStep, gameSubStepIndex) {
+      this.currentStepAllNumber = data['GameStep'].length
+      if (gameStep >= this.currentStepAllNumber || gameStep < 0) { return }
       this.currentStepIndex = gameStep
       this.currentSubStepIndex = gameSubStepIndex
       let tStepInfo = data['GameStep'][this.currentStepIndex]['SubStep']
@@ -55,6 +60,12 @@ export default {
         this.currentSingleBoxImages = this.currentSubStepInfo['SingleBoxImages']
         this.currentSingleBoxList = this.currentSubStepInfo['SingleBoxList']
         this.currentSingleBoxCorrectAnswer = this.currentSubStepInfo['SingleBoxCorrectAnswer']
+      } else if (this.currentSubStepType === 3) {
+        this.currentMultiBoxTitle = this.currentSubStepInfo['MultiBoxTitle']
+        this.currentMultiBoxQuestion = this.currentSubStepInfo['MultiBoxQuestion']
+        this.currentMultiBoxImages = this.currentSubStepInfo['MultiBoxImages']
+        this.currentMultiBoxList = this.currentSubStepInfo['MultiBoxList']
+        this.currentMultiBoxCorrectAnswer = this.currentSubStepInfo['MultiBoxCorrectAnswer']
       }
     }
   },
@@ -72,6 +83,7 @@ export default {
       currentSubStepType: this.currentSubStepType,
       currentSubStepInfo: this.currentSubStepInfo,
       currentSubStepAllNumber: this.currentSubStepAllNumber,
+      currentStepAllNumber: this.currentStepAllNumber,
       currentStepIndex: this.gameStepInfo.gameStepIndex,
       currentSubStepIndex: this.gameStepInfo.gameSubStepIndex,
       currentVideoSrc: this.currentVideoSrc,
@@ -84,7 +96,12 @@ export default {
       currentSingleBoxQuestion: this.currentSingleBoxQuestion,
       currentSingleBoxImages: this.currentSingleBoxImages,
       currentSingleBoxList: this.currentSingleBoxList,
-      currentSingleBoxCorrectAnswer: this.currentSingleBoxCorrectAnswer
+      currentSingleBoxCorrectAnswer: this.currentSingleBoxCorrectAnswer,
+      currentMultiBoxTitle: this.currentMultiBoxTitle,
+      currentMultiBoxQuestion: this.currentMultiBoxQuestion,
+      currentMultiBoxImages: this.currentMultiBoxImages,
+      currentMultiBoxList: this.currentMultiBoxList,
+      currentMultiBoxCorrectAnswer: this.currentMultiBoxCorrectAnswer
     }
   }
 }

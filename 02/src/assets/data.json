@@ -64,7 +64,7 @@
           "SubStepType": 2,
           "SubStepInfo":{
             "SingleBoxTitle": "这是一个单选框问题",
-            "SingleBoxQuestion":"now we want to be stronger,what can I do?",
+            "SingleBoxQuestion": "now we want to be stronger,what can I do?",
             "SingleBoxImages": "https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png",
             "SingleBoxList": [
               "list one",
@@ -72,6 +72,25 @@
               "list three"
             ],
             "SingleBoxCorrectAnswer": 1
+          }
+        },
+        {
+          "SubStepName": "子阶段3",
+          "SubStepDesc": "子阶段4miaoshu",
+          "SubStepType": 3,
+          "SubStepInfo":{
+            "MultiBoxTitle": "这是一个多选问题",
+            "MultiBoxQuestion":"now we want to be stronger,what can I do?",
+            "MultiBoxImages": "https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png",
+            "MultiBoxList": [
+              "list one",
+              "list two",
+              "list three"
+            ],
+            "MultiBoxCorrectAnswer": [
+              1,
+              2
+            ]
           }
         }
       ]

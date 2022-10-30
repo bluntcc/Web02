@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     handleNextClick () {
-      if (this.gameSubStepIndex < this.currentAllStepNumber - 1) {
+      if (this.gameSubStepIndex < this.allNumber - 1) {
         this.setGameStep(this.gameStepIndex, this.gameSubStepIndex + 1)
       } else {
         this.setGameStep(this.gameStepIndex + 1, 0)
@@ -54,8 +54,7 @@ export default {
     return {
       doneTitle: '已完成',
       doingTitle: '进行中',
-      willDoTitle: '未完成',
-      currentAllStepNumber: this.allNumber
+      willDoTitle: '未完成'
     }
   }
 }
