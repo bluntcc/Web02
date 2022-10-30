@@ -1,8 +1,1 @@
-html
-{
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-image: url("/static/TestUI1/Map Background.png");
-  background-size: 100% 100%;
-}
+html, body, #app{ height: 100%; margin: 0; padding: 0;}

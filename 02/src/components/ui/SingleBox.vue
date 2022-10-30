@@ -13,7 +13,7 @@
       <el-row>当前选择的值是：{{this.radio}}</el-row>
       <el-button @click="ConfirmButton">确定</el-button>
     </el-dialog>
-    <div>当前单选框结果：{{singleBoxResult}}</div>
+    <div v-if="hasConfirm">当前单选框结果：{{singleBoxResult}}</div>
   </div>
 </template>
 
@@ -34,8 +34,8 @@ export default {
       default: () => []
     },
     correctAnswer: {
-      type: String,
-      default: 'no question'
+      type: Number,
+      default: 0
     },
     imageURL: {
       type: String,
@@ -50,19 +50,21 @@ export default {
     },
     // 回答结果判断
     ConfirmButton () {
-      if (this.radio === this.correctAnswer) {
+      if (this.radio === this.singleBoxList[this.correctAnswer]) {
         this.singleBoxResult = true
       } else {
         this.singleBoxResult = false
       }
       this.dialogSingleBoxVisible = false
+      this.hasConfirm = true
     }
   },
   data () {
     return {
       radio: '',
       dialogSingleBoxVisible: false,
-      singleBoxResult: false
+      singleBoxResult: false,
+      hasConfirm: false
     }
   }
 }

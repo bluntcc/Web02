@@ -1,5 +1,7 @@
 <template>
+  <div class="mainProcessCss">
     <bottom-card :game-step-info="gameStepInfo"></bottom-card>
+  </div>
 </template>
 
 <script>
@@ -36,4 +38,14 @@ export default {
 </script>
 
 <style scoped>
+.mainProcessCss{
+  width: 100%;
+  height: 100%;
+  background-image: url("/static/TestUI1/Map Background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-color: #464646;
+}
 </style>

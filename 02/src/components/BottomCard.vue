@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="bottomCardCss">
     <game-step-mini :game-step-index="currentStepIndex" :game-sub-step-index="currentSubStepIndex" :all-number="currentSubStepAllNumber" :done-number="currentSubStepIndex"></game-step-mini>
     <video-msg-box v-if="currentSubStepType === 0" :src="currentVideoSrc" :desc="currentVideoDescriptions"></video-msg-box>
     <text-desc-dialog v-if="currentSubStepType === 1" :descriptions="currentTextDescriptions" :title="currentTextTitle" :image-u-r-l="currentImageUrl"></text-desc-dialog>
+    <single-box v-if="currentSubStepType === 2" :singleBoxTitle="currentSingleBoxTitle" :question="currentSingleBoxQuestion" :singleBoxList="currentSingleBoxList" :correctAnswer="currentSingleBoxCorrectAnswer" :imageURL="currentSingleBoxImages"></single-box>
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import videoMsgBox from '../components/Video/VideoMsgBox'
 import textDescDialog from '../components/ui/TextDescDialog'
 import data from '../assets/data.json'
 import GameStepMini from '../components/ui/GameStepMini'
+import singleBox from './ui/SingleBox'
 
 export default {
   name: 'BottomCard',
@@ -19,7 +21,8 @@ export default {
     GameStepMini,
     gameStep: gameStep,
     videoMsgBox: videoMsgBox,
-    textDescDialog: textDescDialog
+    textDescDialog: textDescDialog,
+    singleBox: singleBox
   },
   props: {
     gameStepInfo: {
@@ -33,8 +36,8 @@ export default {
     changeGameStepInfo: function (gameStep, gameSubStepIndex) {
       this.currentStepIndex = gameStep
       this.currentSubStepIndex = gameSubStepIndex
-      var tStepInfo = data['GameStep'][this.currentStepIndex]['SubStep']
-      var tSubStepInfo = tStepInfo[this.currentSubStepIndex]
+      let tStepInfo = data['GameStep'][this.currentStepIndex]['SubStep']
+      let tSubStepInfo = tStepInfo[this.currentSubStepIndex]
       this.currentSubStepType = tSubStepInfo['SubStepType']
       this.currentSubStepInfo = tSubStepInfo['SubStepInfo']
       this.currentSubStepAllNumber = tStepInfo.length
@@ -46,6 +49,12 @@ export default {
         this.currentTextTitle = this.currentSubStepInfo['TextTitle']
         this.currentTextDescriptions = this.currentSubStepInfo['TextDesc']
         this.currentImageUrl = this.currentSubStepInfo['TextImageUrl']
+      } else if (this.currentSubStepType === 2) {
+        this.currentSingleBoxTitle = this.currentSubStepInfo['SingleBoxTitle']
+        this.currentSingleBoxQuestion = this.currentSubStepInfo['SingleBoxQuestion']
+        this.currentSingleBoxImages = this.currentSubStepInfo['SingleBoxImages']
+        this.currentSingleBoxList = this.currentSubStepInfo['SingleBoxList']
+        this.currentSingleBoxCorrectAnswer = this.currentSubStepInfo['SingleBoxCorrectAnswer']
       }
     }
   },
@@ -70,12 +79,23 @@ export default {
       currentVideoTitle: this.currentVideoTitle,
       currentTextDescriptions: this.currentTextDescriptions,
       currentTextTitle: this.currentTextTitle,
-      currentImageUrl: this.currentImageUrl
+      currentImageUrl: this.currentImageUrl,
+      currentSingleBoxTitle: this.currentSingleBoxTitle,
+      currentSingleBoxQuestion: this.currentSingleBoxQuestion,
+      currentSingleBoxImages: this.currentSingleBoxImages,
+      currentSingleBoxList: this.currentSingleBoxList,
+      currentSingleBoxCorrectAnswer: this.currentSingleBoxCorrectAnswer
     }
   }
 }
 </script>
 
 <style scoped>
-
+.bottomCardCss{
+  width: 100%;
+  /*display: flex;*/
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
 </style>

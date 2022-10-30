@@ -70,7 +70,7 @@ export default {
         'list two',
         'list three'
       ],
-      gameSingleBoxCorrectAnswer: 'list one'
+      gameSingleBoxCorrectAnswer: 1
     }
   }
 }
