@@ -1,4 +1,8 @@
 const routes = [
+  {
+    path: '/',
+    redirect: '/game',
+  },
   // {
   //   path: '/',
   //   redirect: '/home',
@@ -48,7 +52,7 @@ const routes = [
     },
   },
   {
-    name: '/',
+    name: 'game',
     path: '/game',
     component: () => import('/@/views/mainProcess/index.vue'),
     meta: {
