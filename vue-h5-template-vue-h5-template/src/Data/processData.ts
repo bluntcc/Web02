@@ -1,4 +1,5 @@
 export enum SubStepType {
+  'None' = -1,
   'Video' = 0,
   'SingleBox' = 2,
   'Text' = 1,

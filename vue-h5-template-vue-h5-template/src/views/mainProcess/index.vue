@@ -1,12 +1,12 @@
 <template>
-  <h2>主流程</h2>
-  <game-step-mini />
-  <multi-box v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.MultiBox" />
-  <TextDes v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.Text" />
-  <PlayVideo v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.Video" />
-  <single-box v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.SingleBox" />
-  <nut-button @click="PreProcess">上一阶段</nut-button>
-  <nut-button @click="nextProcess">下一阶段</nut-button>
+  <div class="mainProcessCss" ref="mainProcess">
+    <main-step v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.None" />
+    <game-step-mini v-if="getSubStepType(processStore.getStep, processStore.getSubStep) !== SubStepType.None" />
+    <multi-box v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.MultiBox" />
+    <TextDes v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.Text" />
+    <PlayVideo v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.Video" />
+    <single-box v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.SingleBox" />
+  </div>
 </template>
 
 <script lang="ts" setup name="MainProcess">
@@ -15,13 +15,28 @@
   import { useProcessStore } from '/@/store/modules/process';
   import TextDes from '/@/components/TextDes.vue';
   import PlayVideo from '/@/components/PlayVideo.vue';
+  import MainStep from '/@/components/MainStep.vue';
   const processStore = useProcessStore();
-  const nextProcess = function () {
-    processStore.setStepInfo(processStore.step + 1, 0);
-  };
-  const PreProcess = function () {
-    processStore.setStepInfo(processStore.step - 1, 0);
-  };
+  import Hammer from 'hammerjs/hammer.min';
+
+  let mainProcess = ref(null);
+  onMounted(() => {
+    let hammerTimer = new Hammer(mainProcess.value);
+    hammerTimer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+    hammerTimer.on('panend', function (ev) {
+      if (ev.additionalEvent === 'panup') processStore.setStepInfo(processStore.step, processStore.subStep + 1);
+      else if (ev.additionalEvent == 'pandown') processStore.setStepInfo(processStore.step, processStore.subStep - 1);
+    });
+    // hammerTimer.on('pan', function (ev) {
+    //   console.log(ev.additionalEvent);
+    //   if (ev.additionalEvent === 'panup') processStore.setStepInfo(processStore.step, processStore.subStep + 1);
+    // });
+  });
 </script>
 
-<style scoped></style>
+<style scoped>
+  .mainProcessCss {
+    width: 100%;
+    height: 100%;
+  }
+</style>

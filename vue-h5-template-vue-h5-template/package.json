@@ -23,6 +23,8 @@
     "@vueuse/integrations": "9.3.1",
     "axios": "1.1.3",
     "dayjs": "^1.11.6",
+    "graceful-fs": "^4.2.10",
+    "hammerjs": "^2.0.8",
     "mitt": "^3.0.0",
     "pinia": "^2.0.23",
     "pinia-plugin-persistedstate": "^2.3.0",
@@ -33,6 +35,7 @@
     "vue-router": "^4.1.5"
   },
   "devDependencies": {
+    "@types/hammerjs": "^2.0.41",
     "@typescript-eslint/eslint-plugin": "^5.40.1",
     "@typescript-eslint/parser": "^5.40.1",
     "@vitejs/plugin-legacy": "^2.2.0",
@@ -50,6 +53,10 @@
     "eslint-plugin-vue": "^9.6.0",
     "git-cz": "^4.9.0",
     "husky": "8.0.1",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^10.0.1",
     "lint-staged": "13.0.3",
     "mockjs": "^1.1.0",
     "postcss": "^8.4.18",

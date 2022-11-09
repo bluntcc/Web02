@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     GameStepMini: typeof import('./../src/components/GameStepMini.vue')['default']
+    MainStep: typeof import('./../src/components/MainStep.vue')['default']
     MultiBox: typeof import('./../src/components/MultiBox.vue')['default']
     PlayVideo: typeof import('./../src/components/PlayVideo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

@@ -24,12 +24,11 @@
   async function updateSrc() {
     await nextTick();
     let myPlayVideo = document.getElementById('playVideo');
-    if(myPlayVideo != undefined){
+    if (myPlayVideo != undefined) {
       let video = myPlayVideo.children[0] as HTMLMediaElement;
       console.log(video);
       video.load();
     }
-
   }
   watch(processStore.$state, (v, o) => {
     subStepInfoDetail = getSubStepDetail(processStore.step, processStore.subStep) as VideoInfo;

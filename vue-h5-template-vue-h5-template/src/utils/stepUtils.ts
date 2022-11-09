@@ -1,6 +1,7 @@
 import { processData } from '/@/Data/processData';
 
 export enum SubStepType {
+  'None' = -1,
   'Video' = 0,
   'SingleBox' = 2,
   'Text' = 1,
@@ -57,6 +58,7 @@ export function getSubStepDetail(step, subStep): VideoInfo | TextInfo | SingleBo
 }
 
 export function getSubStepType(step, subStep): SubStepType {
+  if (subStep < 0) return SubStepType.None;
   return getSubStepInfo(step, subStep).SubStepType;
 }
 
@@ -66,4 +68,8 @@ export function getStepNumber(): number {
 
 export function getSubStepNumber(step): number {
   return processData.GameStep[step].SubStep.length;
+}
+
+export function getAllStepInfo(): StepInfo[] {
+  return processData.GameStep.map((x) => x.StepInfo);
 }

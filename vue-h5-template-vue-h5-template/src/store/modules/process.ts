@@ -11,7 +11,7 @@ export const useProcessStore = defineStore({
   id: 'app-process',
   state: (): StepInfo => ({
     step: 0,
-    subStep: 0,
+    subStep: -1,
     pass: new Array(getStepNumber()),
   }),
   getters: {
@@ -24,10 +24,21 @@ export const useProcessStore = defineStore({
   },
   actions: {
     setStepInfo(step: number, subStep: number): boolean {
-      if (step < 0 || step >= getStepNumber() || subStep < 0 || subStep >= getSubStepNumber(step)) return false;
-      this.step = step;
-      this.subStep = subStep;
-      return true;
+      if (subStep < 0) {
+        subStep = -1;
+        return true;
+      }
+      if (subStep >= getSubStepNumber(step) && step < getStepNumber() - 1) {
+        this.step = step + 1;
+        this.subStep = -1;
+        return true;
+      }
+      if (step >= 0 && step < getStepNumber() && subStep >= 0 && subStep < getSubStepNumber(step)) {
+        this.step = step;
+        this.subStep = subStep;
+        return true;
+      }
+      return false;
     },
     setPassInfo(step: number, subStep: number): void {
       if (this.pass[step] == undefined) {
