@@ -1,8 +1,8 @@
 <template>
   <div>
-    <nut-cell size="large" :title="subStepInfo.SubStepName" :desc="subStepInfo.SubStepDesc" />
-    <nut-cell size="large" :title="subStepInfo.SubStepInfo.TextTitle" :desc="subStepInfo.SubStepInfo.TextDesc" />
-    <nut-image :src="subStepInfo.SubStepInfo.TextImageUrl" width="100" height="100" fit="contain" postion="center" />
+    <nut-cell class="itemCss" size="large" :title="subStepInfo.SubStepName" :desc="subStepInfo.SubStepDesc" />
+    <nut-cell class="itemCss" size="large" :title="subStepInfo.SubStepInfo.TextTitle" :desc="subStepInfo.SubStepInfo.TextDesc" />
+    <nut-image class="itemCss" :src="subStepInfo.SubStepInfo.TextImageUrl" fit="contain" postion="center" />
   </div>
 </template>
 
@@ -17,4 +17,11 @@
   });
 </script>
 
-<style scoped></style>
+<style scoped>
+  .itemCss {
+    width: 80%;
+    height: auto;
+    /*border: 1px solid #2c3e50;*/
+    margin: 10px auto;
+  }
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <nut-video id="playVideo" :source="state.videoSource" :options="state.options" />
+  <nut-video class="playVideoCss" id="playVideo" :source="state.videoSource" :options="state.options" />
 </template>
 
 <script lang="ts" setup name="PlayVideo">
@@ -37,4 +37,10 @@
   });
 </script>
 
-<style scoped></style>
+<style scoped>
+  .playVideoCss {
+    width: 90%;
+    height: 24%;
+    margin: 0 auto 0;
+  }
+</style>

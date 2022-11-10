@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>{{ getStepInfo(processStore.step).StepName }}</h2>
-    <nut-steps :current="processStore.subStep + 1" @click-step="handleClickStep">
+    <h2 class="itemCss">{{ getStepInfo(processStore.step).StepName }}</h2>
+    <nut-steps class="GameStepMiniCss" :current="processStore.subStep + 1" @click-step="handleClickStep">
       <nut-step v-for="n in getSubStepNumber(processStore.step)" :title="getSubStepInfo(processStore.step, n - 1).SubStepName" :key="n" />
     </nut-steps>
   </div>
@@ -17,4 +17,18 @@
   };
 </script>
 
-<style scoped></style>
+<style scoped>
+  .GameStepMiniCss {
+    width: 80%;
+    /*border: 1px solid #2c3e50;*/
+    margin: 0 auto 0;
+    top: 0;
+  }
+  .itemCss {
+    width: 80%;
+    height: auto;
+    /*border: 1px solid #2c3e50;*/
+    margin: 10px auto;
+    text-align: center;
+  }
+</style>

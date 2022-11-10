@@ -1,13 +1,16 @@
 <template>
-  <nut-checkboxgroup v-model="checkboxGroup" @change="handleChange">
-    <nut-checkbox v-for="item in subStepInfo.SubStepInfo.MultiBoxList" :key="item" :label="item">{{ item }}</nut-checkbox>
-  </nut-checkboxgroup>
-  <span class="btn">
-    <nut-button type="primary" @click="toggleAll(true)" style="margin: 0 20px 0 0">全选</nut-button>
-    <nut-button type="primary" @click="toggleAll(false)" style="margin: 0 20px 0 0">取消</nut-button>
-    <nut-button type="warning" @click="toggleReverse()">反选</nut-button>
-    <nut-button @click="submit" plain type="primary">提交</nut-button>
-  </span>
+  <div class="itemCss">
+    <nut-checkboxgroup v-model="checkboxGroup" @change="handleChange">
+      <nut-checkbox v-for="item in subStepInfo.SubStepInfo.MultiBoxList" :key="item" :label="item">{{ item }}</nut-checkbox>
+    </nut-checkboxgroup>
+  </div>
+  <div class="itemCss">
+    <nut-button size="small" type="primary" @click="toggleAll(true)" style="margin: 0 20px 0 0">全选</nut-button>
+    <nut-button size="small" type="primary" @click="toggleAll(false)" style="margin: 0 20px 0 0">取消</nut-button>
+    <nut-button size="small" type="warning" @click="toggleReverse()">反选</nut-button>
+  </div>
+
+  <nut-button class="itemCss" @click="submit" plain block type="primary">提交</nut-button>
 </template>
 
 <script lang="ts" setup name="MultiBox">
@@ -71,4 +74,11 @@
   };
 </script>
 
-<style scoped></style>
+<style scoped>
+  .itemCss {
+    width: 80%;
+    height: auto;
+    /*border: 1px solid #2c3e50;*/
+    margin: 10px auto;
+  }
+</style>

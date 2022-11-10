@@ -6,6 +6,7 @@ export enum SubStepType {
   'SingleBox' = 2,
   'Text' = 1,
   'MultiBox' = 3,
+  'Map' = 4,
 }
 
 export type StepInfo = {
@@ -38,11 +39,17 @@ export type MultiBoxInfo = {
   MultiBoxCorrectAnswer: number[];
 };
 
+export type MapInfo = {
+  MapUrl: string;
+  MapDesc: string;
+  MapTitle: string;
+};
+
 export type SubStepInfo = {
   SubStepName: string;
   SubStepDesc: string;
   SubStepType: SubStepType;
-  SubStepInfo: VideoInfo | TextInfo | SingleBoxInfo | MultiBoxInfo;
+  SubStepInfo: VideoInfo | TextInfo | SingleBoxInfo | MultiBoxInfo | MapInfo;
 };
 
 export function getStepInfo(step): StepInfo {
@@ -53,7 +60,7 @@ export function getSubStepInfo(step, subStep): SubStepInfo {
   return processData.GameStep[step].SubStep[subStep];
 }
 
-export function getSubStepDetail(step, subStep): VideoInfo | TextInfo | SingleBoxInfo | MultiBoxInfo {
+export function getSubStepDetail(step, subStep): VideoInfo | TextInfo | SingleBoxInfo | MultiBoxInfo | MapInfo {
   return processData.GameStep[step].SubStep[subStep].SubStepInfo;
 }
 

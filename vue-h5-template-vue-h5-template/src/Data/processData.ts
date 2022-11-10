@@ -4,6 +4,7 @@ export enum SubStepType {
   'SingleBox' = 2,
   'Text' = 1,
   'MultiBox' = 3,
+  'Map' = 4,
 }
 
 export const processData = {
@@ -70,6 +71,16 @@ export const processData = {
             VideoUrl: 'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm',
             VideoDesc: '视频1 描述',
             VideoTitle: '视频1 Title',
+          },
+        },
+        {
+          SubStepName: '子阶段Map',
+          SubStepDesc: '子阶段Map描述',
+          SubStepType: SubStepType.Map,
+          SubStepInfo: {
+            MapUrl: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+            MapDesc: '视频1 描述',
+            MapTitle: '视频1 Title',
           },
         },
         {

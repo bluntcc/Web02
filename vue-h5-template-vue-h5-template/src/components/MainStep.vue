@@ -19,6 +19,6 @@
   .mainStepCss {
     width: 60%;
     /*text-align: center;*/
-    margin: auto;
+    margin: 20px auto 0px;
   }
 </style>
