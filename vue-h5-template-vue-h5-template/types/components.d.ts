@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    DragBox: typeof import('./../src/components/DragBox.vue')['default']
     GameStepMini: typeof import('./../src/components/GameStepMini.vue')['default']
     MainStep: typeof import('./../src/components/MainStep.vue')['default']
     Map: typeof import('./../src/components/Map.vue')['default']

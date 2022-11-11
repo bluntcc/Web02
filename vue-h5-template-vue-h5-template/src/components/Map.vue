@@ -1,7 +1,8 @@
 <template>
-  <div class="g-container">
-    <div class="g-resize"></div>
-    <div class="g-content" contenteditable="true"> Lorem ipsum dolor sit amet consectetur?</div>
+  <div style="height: 100%">
+    <drag-box>
+      <nut-button>{{ subStepInfoDetail.MapDesc }}</nut-button>
+    </drag-box>
   </div>
 </template>
 
@@ -15,12 +16,12 @@
 
   let subStepInfo = getSubStepInfo(processStore.step, processStore.subStep);
   let subStepInfoDetail = subStepInfo.SubStepInfo as MapInfo;
-
+  
   watch(processStore.$state, (val, old) => {
     subStepInfo = getSubStepInfo(processStore.step, processStore.subStep);
     subStepInfoDetail = subStepInfo.SubStepInfo as MapInfo;
   });
+
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
