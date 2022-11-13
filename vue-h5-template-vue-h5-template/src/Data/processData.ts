@@ -93,6 +93,48 @@ export const processData = {
       },
       SubStep: [
         {
+          SubStepName: '接收预警',
+          SubStepDesc: '什么是山洪灾害，山洪灾害的危害等',
+          SubStepType: SubStepType.Text,
+          SubStepInfo: {
+            TextImageUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdn.moji.com%2Fpage5%2Fimages%2Fuploads%2Feditor%2F20160802%2F20160802102325_14178.jpg&refer=http%3A%2F%2Fcdn.moji.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670863612&t=a2e41010ae971eecc169f4b02f511f7d',
+            TextDesc: '预计12日20时至13日20时，庆元县发生山洪灾害可能性较大（黄色预警），平阳县、苍南县、文成县、泰顺县、云和县、景宁畲族自治县、龙泉市可能发生山洪灾害（蓝色预警）。请密切关注天气形势及雨水情变化，注意防范强降水引发的山洪灾害。',
+            TextTitle: '山洪灾害预警提醒',
+          },
+        },
+        {
+          SubStepName: '地图巡查巡检',
+          SubStepDesc: '子阶段Map描述',
+          SubStepType: SubStepType.Map,
+          SubStepInfo: {
+            MapUrl: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+            MapDesc: '视频1 描述',
+            MapTitle: '视频1 Title',
+            MapSize: [400, 500],
+            MapPoints: [
+              [0, 0],
+              [30, 30],
+            ],
+          },
+        },
+        {
+          SubStepName: '队伍准备',
+          SubStepDesc: '子阶段1描述',
+          SubStepType: SubStepType.Video,
+          SubStepInfo: {
+            VideoUrl: 'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm',
+            VideoDesc: '视频1 描述',
+            VideoTitle: '视频1 Title',
+          },
+        },
+      ],
+    },    
+    {
+      StepInfo: {
+        StepName: '预警和转移',
+      },
+      SubStep: [
+        {
           SubStepName: '子阶段2',
           SubStepDesc: '子阶段1描述',
           SubStepType: SubStepType.Video,
