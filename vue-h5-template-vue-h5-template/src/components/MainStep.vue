@@ -28,7 +28,8 @@
   }
   .mainTitleCss {
     height: 15%;
-    width: 100%;
+    width: 600px;
+    margin: auto;
     position: relative;
   }
   .mainStepCss {

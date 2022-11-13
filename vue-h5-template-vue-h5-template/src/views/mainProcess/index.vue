@@ -40,7 +40,7 @@
     if (getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.None) {
       mainProcessBg.img = '/bg/MainProcessBg.jpg';
     } else {
-      mainProcessBg.img = '/bg/NormalBg.png';
+      mainProcessBg.img = '/bg/NormalBg.jpg';
     }
   });
 </script>
