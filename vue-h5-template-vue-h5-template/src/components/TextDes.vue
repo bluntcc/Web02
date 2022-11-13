@@ -11,7 +11,6 @@
       <!--      :desc="subStepInfoData.data.SubStepDesc"-->
       <!--    />-->
     </div>
-
     <nut-cell class="itemCss" :desc="TextDesc.data" desc-text-align="left" />
     <nut-image class="itemCss" :src="subStepInfoData.data.SubStepInfo.TextImageUrl" fit="contain" postion="center" />
   </div>

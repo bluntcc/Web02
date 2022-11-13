@@ -1,8 +1,11 @@
 <template>
   <div class="itemCss">
-    <nut-checkboxgroup v-model="checkboxGroup" @change="handleChange">
-      <nut-checkbox v-for="item in subStepInfo.SubStepInfo.MultiBoxList" :key="item" :label="item">{{ item }}</nut-checkbox>
-    </nut-checkboxgroup>
+    <nut-cell center>
+      <h3 style="width: 50%">{{ multiBoxData.subStepInfoDetail.MultiBoxQuestion }}</h3>
+      <nut-checkboxgroup v-model="checkboxGroup" @change="handleChange">
+        <nut-checkbox v-for="item in multiBoxData.subStepInfo.SubStepInfo.MultiBoxList" :key="item" :label="item">{{ item }}</nut-checkbox>
+      </nut-checkboxgroup>
+    </nut-cell>
   </div>
   <div class="itemCss">
     <nut-button size="small" type="primary" @click="toggleAll(true)" style="margin: 0 20px 0 0">全选</nut-button>
@@ -25,9 +28,17 @@
   let subStepInfoDetail = subStepInfo.SubStepInfo as MultiBoxInfo;
   let checkboxGroup: string[] = reactive([]);
 
+  const multiBoxData = reactive({
+    subStepInfoDetail: subStepInfoDetail,
+    subStepInfo: subStepInfo,
+  });
+
   watch(processStore.$state, (val, old) => {
-    subStepInfo = getSubStepInfo(processStore.step, processStore.subStep);
-    subStepInfoDetail = subStepInfo.SubStepInfo as MultiBoxInfo;
+    multiBoxData.subStepInfo = getSubStepInfo(processStore.step, processStore.subStep);
+    multiBoxData.subStepInfoDetail = multiBoxData.subStepInfo.SubStepInfo as MultiBoxInfo;
+    while (checkboxGroup.length > 0) {
+      checkboxGroup.pop();
+    }
   });
 
   const handleChange = (label: any[]) => {

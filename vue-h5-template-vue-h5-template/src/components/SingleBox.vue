@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h2 class="itemCss">{{ subStepInfo.SubStepDesc }}</h2>
-    <h3 class="itemCss">{{ subStepInfoDetail.SingleBoxQuestion }}</h3>
-    <nut-image class="itemCss" :src="subStepInfoDetail.SingleBoxImages" />
+    <h2 class="itemCss">{{ singleBoxData.subStepInfo.SubStepDesc }}</h2>
+    <h3 class="itemCss">{{ singleBoxData.subStepInfoDetail.SingleBoxQuestion }}</h3>
+    <nut-image class="itemCss" :src="singleBoxData.subStepInfoDetail.SingleBoxImages" />
     <div class="itemCss">
       <nut-radiogroup v-model="radioVal">
-        <nut-radio class="radioCss" v-for="n in subStepInfoDetail.SingleBoxList" :key="n" :label="n">{{ n }}</nut-radio>
+        <nut-radio class="radioCss" v-for="n in singleBoxData.subStepInfoDetail.SingleBoxList" :key="n" :label="n">{{ n }}</nut-radio>
       </nut-radiogroup>
     </div>
     <div class="itemCss">
@@ -23,9 +23,14 @@
   let subStepInfo = getSubStepInfo(processStore.step, processStore.subStep);
   let subStepInfoDetail = getSubStepDetail(processStore.step, processStore.subStep) as SingleBoxInfo;
   const radioVal = ref(null);
+  const singleBoxData = reactive({
+    subStepInfo: subStepInfo,
+    subStepInfoDetail: subStepInfoDetail,
+  });
   watch(processStore.$state, (v, o) => {
-    subStepInfo = getSubStepInfo(processStore.step, processStore.subStep);
-    subStepInfoDetail = getSubStepDetail(processStore.step, processStore.subStep) as SingleBoxInfo;
+    singleBoxData.subStepInfo = getSubStepInfo(processStore.step, processStore.subStep);
+    singleBoxData.subStepInfoDetail = getSubStepDetail(processStore.step, processStore.subStep) as SingleBoxInfo;
+    radioVal.value = null;
   });
   const submit = function () {
     if (radioVal == null) {
