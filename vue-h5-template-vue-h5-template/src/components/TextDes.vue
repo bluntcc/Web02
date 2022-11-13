@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="textDesTitleCss">
-      <h1>{{ subStepInfoData.data.SubStepName }}</h1>
+      <h1>{{ subStepInfoData.data.SubStepInfo.TextTitle }}</h1>
       <!--    <h2>{{ subStepInfoData.data.SubStepInfo.TextTitle }}</h2>-->
       <h2>{{ subStepInfoData.data.SubStepDesc }}</h2>
       <!--    <nut-cell-->
