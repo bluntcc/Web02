@@ -8,7 +8,7 @@ export enum SubStepType {
 }
 
 export const processData = {
-  GameStepTitle: "山洪灾害培训演练",
+  GameStepTitle: '山洪灾害培训演练',
   GameStep: [
     {
       StepInfo: {
@@ -97,8 +97,10 @@ export const processData = {
           SubStepDesc: '什么是山洪灾害，山洪灾害的危害等',
           SubStepType: SubStepType.Text,
           SubStepInfo: {
-            TextImageUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdn.moji.com%2Fpage5%2Fimages%2Fuploads%2Feditor%2F20160802%2F20160802102325_14178.jpg&refer=http%3A%2F%2Fcdn.moji.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670863612&t=a2e41010ae971eecc169f4b02f511f7d',
-            TextDesc: '预计12日20时至13日20时，庆元县发生山洪灾害可能性较大（黄色预警），平阳县、苍南县、文成县、泰顺县、云和县、景宁畲族自治县、龙泉市可能发生山洪灾害（蓝色预警）。请密切关注天气形势及雨水情变化，注意防范强降水引发的山洪灾害。',
+            TextImageUrl:
+              'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdn.moji.com%2Fpage5%2Fimages%2Fuploads%2Feditor%2F20160802%2F20160802102325_14178.jpg&refer=http%3A%2F%2Fcdn.moji.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670863612&t=a2e41010ae971eecc169f4b02f511f7d',
+            TextDesc:
+              '预计12日20时至13日20时，庆元县发生山洪灾害可能性较大（黄色预警），平阳县、苍南县、文成县、泰顺县、云和县、景宁畲族自治县、龙泉市可能发生山洪灾害（蓝色预警）。请密切关注天气形势及雨水情变化，注意防范强降水引发的山洪灾害。',
             TextTitle: '山洪灾害预警提醒',
           },
         },
@@ -139,8 +141,10 @@ export const processData = {
           SubStepDesc: '强降雨持续预警',
           SubStepType: SubStepType.Text,
           SubStepInfo: {
-            TextImageUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdn.moji.com%2Fpage5%2Fimages%2Fuploads%2Feditor%2F20160802%2F20160802102325_14178.jpg&refer=http%3A%2F%2Fcdn.moji.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670863612&t=a2e41010ae971eecc169f4b02f511f7d',
-            TextDesc: '预计今天至31日20时，遂昌发生山洪灾害可能性很大，为红色预警。前期降雨较大导致山体土壤饱和，山塘水库及河道都在高水位运行，请密切关注天气形势和雨水情变化，加强山洪灾害危险区、山塘水库和河道等重点地区的巡查，加强值班值守，提前做好人员转移避险和防御工作，确保防汛安全。',
+            TextImageUrl:
+              'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdn.moji.com%2Fpage5%2Fimages%2Fuploads%2Feditor%2F20160802%2F20160802102325_14178.jpg&refer=http%3A%2F%2Fcdn.moji.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670863612&t=a2e41010ae971eecc169f4b02f511f7d',
+            TextDesc:
+              '预计今天至31日20时，遂昌发生山洪灾害可能性很大，为红色预警。前期降雨较大导致山体土壤饱和，山塘水库及河道都在高水位运行，请密切关注天气形势和雨水情变化，加强山洪灾害危险区、山塘水库和河道等重点地区的巡查，加强值班值守，提前做好人员转移避险和防御工作，确保防汛安全。',
             TextTitle: '强降雨持续预警',
           },
         },
@@ -152,7 +156,7 @@ export const processData = {
             MultiBoxTitle: '这是一个多选问题',
             MultiBoxQuestion: '请选择常用预警方式?',
             MultiBoxImages: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-            MultiBoxList: ['敲锣', '吹哨', '电话','预警广播'],
+            MultiBoxList: ['敲锣', '吹哨', '电话', '预警广播'],
             MultiBoxCorrectAnswer: [0, 1, 2, 3],
           },
         },
@@ -191,7 +195,8 @@ export const processData = {
           SubStepDesc: '子阶段2描述',
           SubStepType: SubStepType.Text,
           SubStepInfo: {
-            TextImageUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp6.itc.cn%2Fq_70%2Fimages03%2F20210907%2F8beb13f7ae9547fbbb64c09c45a6008f.jpeg&refer=http%3A%2F%2Fp6.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670939106&t=d4d0a19afc45a0d2762091b32d4c14a8',
+            TextImageUrl:
+              'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp6.itc.cn%2Fq_70%2Fimages03%2F20210907%2F8beb13f7ae9547fbbb64c09c45a6008f.jpeg&refer=http%3A%2F%2Fp6.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670939106&t=d4d0a19afc45a0d2762091b32d4c14a8',
             TextDesc: '人员转移完毕后，对危险区进行封锁警戒。防止人员回流。',
             TextTitle: '封锁警戒',
           },
@@ -211,8 +216,10 @@ export const processData = {
           SubStepDesc: '子阶段2描述',
           SubStepType: SubStepType.Text,
           SubStepInfo: {
-            TextImageUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fnews.cnhubei.com%2Fa%2F10001%2F202107%2Fa2fb481cf3a9aab1d03f12795bd6af65.jpeg&refer=http%3A%2F%2Fnews.cnhubei.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670939168&t=088e5da7232811183ee60ca351daaecc',
-            TextDesc: '转移过程中，要注意老弱病残及行动不便的村民，发现有被困群众，及时做好搜救工作。确保人员转移工作完成后，立刻向上级汇报情况。发现村民如被困在安全区域，喊话告知村民原地等待，等待安全后撤离；如村民被困在危险区域，开展救援，帮助被困人员救援撤离。',
+            TextImageUrl:
+              'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fnews.cnhubei.com%2Fa%2F10001%2F202107%2Fa2fb481cf3a9aab1d03f12795bd6af65.jpeg&refer=http%3A%2F%2Fnews.cnhubei.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670939168&t=088e5da7232811183ee60ca351daaecc',
+            TextDesc:
+              '转移过程中，要注意老弱病残及行动不便的村民，发现有被困群众，及时做好搜救工作。确保人员转移工作完成后，立刻向上级汇报情况。发现村民如被困在安全区域，喊话告知村民原地等待，等待安全后撤离；如村民被困在危险区域，开展救援，帮助被困人员救援撤离。',
             TextTitle: '搜救村民并上报',
           },
         },
@@ -231,7 +238,8 @@ export const processData = {
           SubStepDesc: '子阶段2描述',
           SubStepType: SubStepType.Text,
           SubStepInfo: {
-            TextImageUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp6.toutiaoimg.com%2Forigin%2Ftos-cn-i-qvj2lq49k0%2F85652d828e3c4236b39fa61997159c59%3Ffrom%3Dpc&refer=http%3A%2F%2Fp6.toutiaoimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670939387&t=807c8d962d90354f9dedba83ed5f069c',
+            TextImageUrl:
+              'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp6.toutiaoimg.com%2Forigin%2Ftos-cn-i-qvj2lq49k0%2F85652d828e3c4236b39fa61997159c59%3Ffrom%3Dpc&refer=http%3A%2F%2Fp6.toutiaoimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670939387&t=807c8d962d90354f9dedba83ed5f069c',
             TextDesc: '雨势渐小，通过巡查,确定风险隐患已全面排除，解除警戒，部分被转移人员陆续返回，对于房屋邻近山体的居民，应暂缓返回。',
             TextTitle: '危险解除',
           },
@@ -260,7 +268,8 @@ export const processData = {
           SubStepInfo: {
             SingleBoxTitle: '这是一个单选框问题',
             SingleBoxQuestion: '下图是否是一张山洪灾害调查表?',
-            SingleBoxImages: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Ftxt6-2.book118.com%2F2017%2F0717%2Fbook27810%2F27809890.png&refer=http%3A%2F%2Ftxt6-2.book118.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670939841&t=9923928f977c05b78d5f40439c01391c',
+            SingleBoxImages:
+              'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Ftxt6-2.book118.com%2F2017%2F0717%2Fbook27810%2F27809890.png&refer=http%3A%2F%2Ftxt6-2.book118.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670939841&t=9923928f977c05b78d5f40439c01391c',
             SingleBoxList: ['是', '否', '不确定'],
             SingleBoxCorrectAnswer: 0,
           },
@@ -270,8 +279,10 @@ export const processData = {
           SubStepDesc: '子阶段3描述',
           SubStepType: SubStepType.Text,
           SubStepInfo: {
-            TextImageUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp6.toutiaoimg.com%2Forigin%2Ftos-cn-i-qvj2lq49k0%2F85652d828e3c4236b39fa61997159c59%3Ffrom%3Dpc&refer=http%3A%2F%2Fp6.toutiaoimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670939387&t=807c8d962d90354f9dedba83ed5f069c',
-            TextDesc: '做好复工复产、受损的重点工程项目如山塘水库、水闸、堰坝、堤防等修复；做好受损的交通、电力、供水、通讯等设施的抢修；做好卫生防疫工作、环境清理恢复并及时发放救灾款物。',
+            TextImageUrl:
+              'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp6.toutiaoimg.com%2Forigin%2Ftos-cn-i-qvj2lq49k0%2F85652d828e3c4236b39fa61997159c59%3Ffrom%3Dpc&refer=http%3A%2F%2Fp6.toutiaoimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670939387&t=807c8d962d90354f9dedba83ed5f069c',
+            TextDesc:
+              '做好复工复产、受损的重点工程项目如山塘水库、水闸、堰坝、堤防等修复；做好受损的交通、电力、供水、通讯等设施的抢修；做好卫生防疫工作、环境清理恢复并及时发放救灾款物。',
             TextTitle: '灾后重建',
           },
         },
