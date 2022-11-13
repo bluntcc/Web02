@@ -80,3 +80,7 @@ export function getSubStepNumber(step): number {
 export function getAllStepInfo(): StepInfo[] {
   return processData.GameStep.map((x) => x.StepInfo);
 }
+
+export function getGameTitle(): string {
+  return processData.GameStepTitle;
+}

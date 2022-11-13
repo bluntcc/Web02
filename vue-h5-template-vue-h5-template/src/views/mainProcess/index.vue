@@ -1,4 +1,5 @@
 <template>
+  <div class="allCss" :style="{ 'background-image': 'url(' + mainProcessBg.img + ')'}"> </div>
   <div class="mainProcessCss">
     <main-step v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.None" />
     <game-step-mini v-if="getSubStepType(processStore.getStep, processStore.getSubStep) !== SubStepType.None" />
@@ -12,7 +13,7 @@
 </template>
 
 <script lang="ts" setup name="MainProcess">
-  import { getSubStepType } from '/@/utils/stepUtils';
+  import { getSubStepInfo, getSubStepType } from '/@/utils/stepUtils';
   import { SubStepType } from '/@/utils/stepUtils';
   import { useProcessStore } from '/@/store/modules/process';
   import TextDes from '/@/components/TextDes.vue';
@@ -29,21 +30,37 @@
       if (ev.additionalEvent === 'panup') processStore.setStepInfo(processStore.step, processStore.subStep + 1);
       else if (ev.additionalEvent == 'pandown') processStore.setStepInfo(processStore.step, processStore.subStep - 1);
     });
-    // hammerTimer.on('pan', function (ev) {
-    //   console.log(ev.additionalEvent);
-    //   if (ev.additionalEvent === 'panup') processStore.setStepInfo(processStore.step, processStore.subStep + 1);
-    // });
+  });
+
+  const mainProcessBg = reactive({
+    img: '/bg/MainProcessBg.jpg',
+  });
+
+  watch(processStore.$state, (v, o) => {
+    if (getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.None) {
+      mainProcessBg.img = '/bg/MainProcessBg.jpg';
+    } else {
+      mainProcessBg.img = '/bg/NormalBg.png';
+    }
   });
 </script>
 
 <style scoped>
+  .allCss {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+    background: ;
+  }
   .mainProcessCss {
     width: 100%;
-    height: 80%;
+    height: 100%;
+    margin: 0 auto -100px auto;
   }
-  .panDownUpCss{
+  .panDownUpCss {
     width: 100%;
-    height: 20%;
-    margin-bottom: 0;
+    height: 100px;
   }
 </style>

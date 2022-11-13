@@ -1,19 +1,50 @@
 <template>
   <div>
-    <nut-cell class="itemCss" size="large" :title="subStepInfo.SubStepName" :desc="subStepInfo.SubStepDesc" />
-    <nut-cell class="itemCss" size="large" :title="subStepInfo.SubStepInfo.TextTitle" :desc="subStepInfo.SubStepInfo.TextDesc" />
-    <nut-image class="itemCss" :src="subStepInfo.SubStepInfo.TextImageUrl" fit="contain" postion="center" />
+    <div class="textDesTitleCss">
+      <h1>{{ subStepInfoData.data.SubStepName }}</h1>
+      <!--    <h2>{{ subStepInfoData.data.SubStepInfo.TextTitle }}</h2>-->
+      <h3>{{ subStepInfoData.data.SubStepDesc }}</h3>
+      <!--    <nut-cell-->
+      <!--      class="itemCss"-->
+      <!--      :title="subStepInfoData.data.SubStepName"-->
+      <!--      :subTitle="subStepInfoData.data.SubStepInfo.TextTitle"-->
+      <!--      :desc="subStepInfoData.data.SubStepDesc"-->
+      <!--    />-->
+    </div>
+
+    <nut-cell class="itemCss" :desc="TextDesc.data" desc-text-align="left" />
+    <nut-image class="itemCss" :src="subStepInfoData.data.SubStepInfo.TextImageUrl" fit="contain" postion="center" />
   </div>
 </template>
 
 <script lang="ts" setup name="TextDes">
   import { useProcessStore } from '/@/store/modules/process';
-  import { getSubStepInfo } from '/@/utils/stepUtils';
+  import { getSubStepInfo, TextInfo } from '/@/utils/stepUtils';
   const processStore = useProcessStore();
   let subStepInfo = getSubStepInfo(processStore.step, processStore.subStep);
+  const subStepInfoData = reactive({
+    data: subStepInfo,
+  });
+  const TextDesc = reactive({
+    data: '',
+  });
+
+  let textDescIndex = 0;
+  const autoTyping = function () {
+    textDescIndex++;
+    let rawDesc = subStepInfoData.data.SubStepInfo as TextInfo;
+    TextDesc.data = rawDesc.TextDesc.slice(0, textDescIndex);
+  };
+
+  onMounted(() => {
+    setInterval(() => {
+      autoTyping();
+    }, 300);
+  });
 
   watch(processStore.$state, (v, o) => {
-    subStepInfo = getSubStepInfo(processStore.step, processStore.subStep);
+    subStepInfoData.data = getSubStepInfo(processStore.step, processStore.subStep);
+    textDescIndex = 0;
   });
 </script>
 
@@ -24,4 +55,15 @@
     /*border: 1px solid #2c3e50;*/
     margin: 10px auto;
   }
+  .textDesTitleCss {
+    height: 100px;
+    position: relative;
+    text-align: center;
+  }
+  /*.centreVHCss {*/
+  /*  position: absolute;*/
+  /*  left: 50%; !* 定位父级的50% *!*/
+  /*  top: 50%;*/
+  /*  transform: translate(-50%, -50%); !*自己的50% *!*/
+  /*}*/
 </style>

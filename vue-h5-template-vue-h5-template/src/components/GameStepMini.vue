@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h2 class="itemCss">{{ getStepInfo(processStore.step).StepName }}</h2>
-    <nut-steps class="GameStepMiniCss" :current="processStore.subStep + 1" @click-step="handleClickStep">
+    <div class="titleCss">
+      <h2 class="centreVHCss">{{ getStepInfo(processStore.step).StepName }}</h2>
+    </div>
+    <nut-steps class="GameStepMiniCss" :current="processStore.subStep + 1" @click-step="handleClickStep" progress-dot>
       <nut-step v-for="n in getSubStepNumber(processStore.step)" :title="getSubStepInfo(processStore.step, n - 1).SubStepName" :key="n" />
     </nut-steps>
   </div>
@@ -28,7 +30,19 @@
     width: 80%;
     height: auto;
     /*border: 1px solid #2c3e50;*/
-    margin: 10px auto;
+    margin: 0 auto;
     text-align: center;
+  }
+  .centreVHCss {
+    position: absolute;
+    left: 50%; /* 定位父级的50% */
+    top: 50%;
+    transform: translate(-50%, -50%); /*自己的50% */
+  }
+  .titleCss {
+    /*margin: 0 auto;*/
+    height: 100px;
+    text-align: center;
+    position: relative;
   }
 </style>
