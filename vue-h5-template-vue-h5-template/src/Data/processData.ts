@@ -8,7 +8,7 @@ export enum SubStepType {
 }
 
 export const processData = {
-  GameStepTitle: "山洪灾害常识",
+  GameStepTitle: "山洪灾害培训演练",
   GameStep: [
     {
       StepInfo: {
