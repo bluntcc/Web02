@@ -60,7 +60,7 @@
     posData.position.y = touch.clientY;
     posData.dx = dragBoxRef.value.offsetLeft;
     posData.dy = dragBoxRef.value.offsetTop;
-    console.log("down");
+    // console.log("down");
   };
   const move = function (event) {
     if (posData.flags) {
@@ -91,20 +91,20 @@
       dragBoxRef.value.style.left = posData.xPum + 'px';
       dragBoxRef.value.style.top = posData.yPum + 'px';
       //阻止页面的滑动默认事件；如果碰到滑动问题，1.2 请注意是否获取到 touchmove
-      document.addEventListener(
-        'touchmove',
-        function () {
-          event.preventDefault();
-        },
-        false,
-      );
-      console.log("move");
+      // document.addEventListener(
+      //   'touchmove',
+      //   function () {
+      //     event.preventDefault();
+      //   },
+      //   false,
+      // );
+      // console.log("move");
 
     }
   };
   const end = function (e) {
     posData.flags = false;
-    console.log("end");
+    // console.log("end");
   };
 </script>
 

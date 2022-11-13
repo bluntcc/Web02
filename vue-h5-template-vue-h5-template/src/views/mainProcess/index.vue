@@ -1,5 +1,5 @@
 <template>
-  <div class="allCss" :style="{ 'background-image': 'url(' + mainProcessBg.img + ')'}"> </div>
+  <div class="allCss" :style="{ 'background-image': 'url(' + mainProcessBg.img + ')' }"> </div>
   <div class="mainProcessCss">
     <main-step v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.None" />
     <game-step-mini v-if="getSubStepType(processStore.getStep, processStore.getSubStep) !== SubStepType.None" />
@@ -52,15 +52,14 @@
     position: absolute;
     z-index: -1;
     background-size: cover;
-    background: ;
   }
   .mainProcessCss {
     width: 100%;
     height: 100%;
-    margin: 0 auto -100px auto;
+    margin: 0 auto -200px auto;
   }
   .panDownUpCss {
     width: 100%;
-    height: 100px;
+    height: 200px;
   }
 </style>
