@@ -2,93 +2,109 @@
   <div
     ref="dragBoxRef"
     class="tvb-drag-box"
-    :class="{ disabled: disabled }"
-    :style="disabled ? '' : `right: ${dragBoxPos.x}px; bottom: ${dragBoxPos.y}px;`"
-    @touchstart.prevent="onTouchStart"
-    @touchend.prevent="onTouchEnd"
-    @touchmove.prevent="onTouchMove"
+    @mousedown="down"
+    @touchstart="down"
+    @mousemove="move"
+    @touchmove.prevent="move"
+    @mouseup="end"
+    @touchend="end"
+    @mouseover="end"
+    @mouseleave="end"
   >
     <slot></slot>
   </div>
 </template>
 
 <script setup name="DragBox">
-  const props = defineProps({
-    disabled: { type: Boolean, default: false },
-  });
-
-  const dragPos = {
-    hasMoved: false, // 排除click事件
-    x: 0, // right
-    y: 0, // bottom
-    startX: 0,
-    startY: 0,
-    endX: 0,
-    endY: 0,
-  };
-  const dragBoxPos = ref({ x: null, y: null });
+  import { defineProps } from 'vue';
   const dragBoxRef = ref(null);
-
-  const setPosition = (dragX, dragY) => {
-    [dragX, dragY] = _getSafeAreaXY(dragX, dragY);
-    dragPos.x = dragX;
-    dragPos.y = dragY;
-    dragBoxPos.value.x = dragX;
-    dragBoxPos.value.y = dragY;
-  };
-
-  const _getSafeAreaXY = (x, y) => {
-    // const docWidth = Math.max(document.documentElement.offsetWidth, window.innerWidth);
-    // const docHeight = Math.max(document.documentElement.offsetHeight, window.innerHeight);
-    const docWidth = dragBoxRef.value.parentElement.offsetWidth;
-    const docHeight = dragBoxRef.value.parentElement.offsetHeight;
-    // 检查屏幕边缘
-    if (x + dragBoxRef.value.offsetWidth > docWidth) {
-      x = docWidth - dragBoxRef.value.offsetWidth;
+  const props = defineProps({
+    rawPos: {
+      type: Number[2],
+      default: 0,
+    },
+  });
+  const posData = reactive({
+    flags: false,
+    position: { x: 0, y: 0 }, //鼠标的横纵坐标
+    pageLet: 0,
+    pageTop: 0,
+    pageX: '', //页面可视区域的宽
+    pageY: '', //页面可视区域的高
+    nx: '',
+    ny: '',
+    dx: '',
+    dy: '',
+    xPum: '',
+    yPum: '',
+  });
+  onMounted(() => {
+    posData.pageX = dragBoxRef.value.parentElement.offsetWidth - dragBoxRef.value.offsetWidth;
+    posData.pageY = dragBoxRef.value.parentElement.offsetHeight - dragBoxRef.value.offsetHeight;
+    posData.pageTop = dragBoxRef.value.parentElement.offsetTop;
+    posData.pageLet = dragBoxRef.value.parentElement.offsetLeft;
+    dragBoxRef.value.style.left = dragBoxRef.value.parentElement.offsetWidth + 'px';
+    dragBoxRef.value.style.top = dragBoxRef.value.parentElement.offsetHeight + 'px';
+    // console.log('drag区域：', posData.pageX, posData.pageY);
+    // console.log('drag ：', dragBoxRef.value.parentElement.offsetLeft, dragBoxRef.value.parentElement.offsetTop);
+  });
+  const down = function (event) {
+    posData.flags = true; //是否开启拖拽
+    let touch;
+    if (event.touches) {
+      touch = event.touches[0];
+    } else {
+      touch = event;
     }
-    if (y + dragBoxRef.value.offsetHeight > docHeight) {
-      y = docHeight - dragBoxRef.value.offsetHeight;
-    }
-    if (x < 0) {
-      x = 0;
-    }
-    // iOS底部的安全区域
-    if (y < 20) {
-      y = 20;
-    }
-    return [x, y];
+    posData.position.x = touch.clientX;
+    posData.position.y = touch.clientY;
+    posData.dx = dragBoxRef.value.offsetLeft;
+    posData.dy = dragBoxRef.value.offsetTop;
+    console.log("down");
   };
+  const move = function (event) {
+    if (posData.flags) {
+      let touch;
+      if (event.touches) {
+        touch = event.touches[0];
+      } else {
+        touch = event;
+      }
+      posData.nx = touch.clientX - posData.position.x;
+      posData.ny = touch.clientY - posData.position.y;
 
-  const onTouchStart = (e) => {
-    if (props.disabled) return;
-    dragPos.startX = e.touches[0].pageX;
-    dragPos.startY = e.touches[0].pageY;
-    dragPos.hasMoved = false;
+      posData.yPum = posData.dy + posData.ny;
+      if (posData.dx + posData.nx <= posData.pageLet) {
+        posData.xPum = posData.pageLet;
+      } else if (posData.dx + posData.nx >= posData.pageX + posData.pageLet) {
+        posData.xPum = posData.pageX + posData.pageLet;
+      } else {
+        posData.xPum = posData.dx + posData.nx;
+      }
+      if (posData.dy + posData.ny <= posData.pageTop) {
+        posData.yPum = posData.pageTop;
+      } else if (posData.dy + posData.ny >= posData.pageY + posData.pageTop) {
+        posData.yPum = posData.pageY + posData.pageTop;
+      } else {
+        posData.yPum = posData.dy + posData.ny;
+      }
+      dragBoxRef.value.style.left = posData.xPum + 'px';
+      dragBoxRef.value.style.top = posData.yPum + 'px';
+      //阻止页面的滑动默认事件；如果碰到滑动问题，1.2 请注意是否获取到 touchmove
+      document.addEventListener(
+        'touchmove',
+        function () {
+          event.preventDefault();
+        },
+        false,
+      );
+      console.log("move");
+
+    }
   };
-
-  const onTouchEnd = (e) => {
-    if (props.disabled) return;
-    if (!dragPos.hasMoved) return;
-    dragPos.startX = 0;
-    dragPos.startY = 0;
-    dragPos.hasMoved = false;
-    setPosition(dragPos.endX, dragPos.endY);
-  };
-
-  const onTouchMove = (e) => {
-    if (props.disabled) return;
-    if (e.touches.length <= 0) return;
-    const offsetX = e.touches[0].pageX - dragPos.startX,
-      offsetY = e.touches[0].pageY - dragPos.startY;
-    let x = Math.floor(dragPos.x - offsetX),
-      y = Math.floor(dragPos.y - offsetY);
-    [x, y] = _getSafeAreaXY(x, y);
-    dragBoxPos.value.x = x;
-    dragBoxPos.value.y = y;
-    dragPos.endX = x;
-    dragPos.endY = y;
-    dragPos.hasMoved = true;
-    e.preventDefault();
+  const end = function (e) {
+    posData.flags = false;
+    console.log("end");
   };
 </script>
 
@@ -96,6 +112,8 @@
   .tvb-drag-box {
     &:not(.disabled) {
       position: fixed;
+      width: 60px;
+      height: 60px;
       bottom: 10px;
       right: 10px;
       overflow: hidden;

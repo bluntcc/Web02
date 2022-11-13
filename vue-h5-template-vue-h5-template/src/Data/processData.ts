@@ -110,6 +110,11 @@ export const processData = {
             MapUrl: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
             MapDesc: '视频1 描述',
             MapTitle: '视频1 Title',
+            MapSize: [400, 500],
+            MapPoints: [
+              [0, 0],
+              [30, 30],
+            ],
           },
         },
         {

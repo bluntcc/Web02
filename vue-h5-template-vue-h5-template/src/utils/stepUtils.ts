@@ -43,6 +43,8 @@ export type MapInfo = {
   MapUrl: string;
   MapDesc: string;
   MapTitle: string;
+  MapSize: number[];
+  MapPoints: number[][];
 };
 
 export type SubStepInfo = {
