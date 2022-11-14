@@ -40,6 +40,8 @@ import {
   Image,
   Radio,
   RadioGroup,
+  Dialog,
+  OverLay,
 } from '@nutui/nutui';
 
 export const nutUiComponents = [
@@ -82,4 +84,6 @@ export const nutUiComponents = [
   Image,
   Radio,
   RadioGroup,
+  Dialog,
+  OverLay,
 ];

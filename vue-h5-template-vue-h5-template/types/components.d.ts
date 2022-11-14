@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     GameStepMini: typeof import('./../src/components/GameStepMini.vue')['default']
     MainStep: typeof import('./../src/components/MainStep.vue')['default']
     Map: typeof import('./../src/components/Map.vue')['default']
+    MapPoint: typeof import('./../src/components/MapPoint.vue')['default']
     MultiBox: typeof import('./../src/components/MultiBox.vue')['default']
     PlayVideo: typeof import('./../src/components/PlayVideo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

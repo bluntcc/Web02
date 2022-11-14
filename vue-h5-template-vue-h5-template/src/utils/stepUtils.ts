@@ -13,6 +13,17 @@ export type StepInfo = {
   StepName: string;
 };
 
+interface MapPointInfo {
+  location: number[];
+  pointTitle: string;
+  infoDes: string;
+  infoImage: string;
+}
+
+export const MapPointInfoHelper = function (): MapPointInfo {
+  return {} as MapPointInfo;
+};
+
 export type VideoInfo = {
   VideoUrl: string;
   VideoDesc: string;
@@ -59,11 +70,11 @@ export function getStepInfo(step): StepInfo {
 }
 
 export function getSubStepInfo(step, subStep): SubStepInfo {
-  return processData.GameStep[step].SubStep[subStep];
+  return processData.GameStep[step].SubStep[subStep] as SubStepInfo;
 }
 
 export function getSubStepDetail(step, subStep): VideoInfo | TextInfo | SingleBoxInfo | MultiBoxInfo | MapInfo {
-  return processData.GameStep[step].SubStep[subStep].SubStepInfo;
+  return processData.GameStep[step].SubStep[subStep].SubStepInfo as VideoInfo | TextInfo | SingleBoxInfo | MultiBoxInfo | MapInfo;
 }
 
 export function getSubStepType(step, subStep): SubStepType {

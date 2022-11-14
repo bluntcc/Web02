@@ -111,7 +111,7 @@
 <style lang="scss" scoped>
   .tvb-drag-box {
     &:not(.disabled) {
-      position: fixed;
+      position: relative;
       width: 60px;
       height: 60px;
       bottom: 10px;

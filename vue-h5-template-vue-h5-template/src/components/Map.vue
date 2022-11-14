@@ -1,8 +1,11 @@
 <template>
   <div class="mapCss" :style="{ 'background-image': 'url(' + subStepInfoDetail.MapUrl + ')' }">
-    <drag-box :id="'dragBox' + index" :key="'dragBox' + index" v-for="(x, index) in subStepInfoDetail.MapPoints" >
-      <nut-icon size="30" name="location2" />
-    </drag-box>
+    <map-point
+      class="mapPointCss"
+      :points-info="subStepInfoDetail.MapPoints[index]"
+      :key="'dragBox' + index"
+      v-for="(x, index) in subStepInfoDetail.MapPoints"
+    />
   </div>
 </template>
 
@@ -21,18 +24,20 @@
     subStepInfo = getSubStepInfo(processStore.step, processStore.subStep);
     subStepInfoDetail = subStepInfo.SubStepInfo as MapInfo;
   });
+  const mapSize = subStepInfoDetail.MapSize;
 </script>
 
 <style scoped>
   .mapCss {
-    height: 400px;
-    width: 500px;
+    width: v-bind(mapSize[0] + 'vw');
+    height: v-bind(mapSize[1] + 'vw');
     position: relative;
     background-repeat: no-repeat;
+    background-size: 100% 100%;
     margin: auto;
   }
   .mapPointCss {
-    height: 10px;
-    width: 10px;
+    height: 40px;
+    width: 100px;
   }
 </style>
