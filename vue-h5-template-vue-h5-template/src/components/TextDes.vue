@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="textDesTitleCss">
-      <h1>{{ subStepInfoData.data.SubStepInfo.TextTitle }}</h1>
+      <h2>{{ subStepInfoData.data.SubStepInfo.TextTitle }}</h2>
       <!--    <h2>{{ subStepInfoData.data.SubStepInfo.TextTitle }}</h2>-->
-      <h2>{{ subStepInfoData.data.SubStepDesc }}</h2>
+      <!--    <h3>{{ subStepInfoData.data.SubStepDesc }}</h3>-->
       <!--    <nut-cell-->
       <!--      class="itemCss"-->
       <!--      :title="subStepInfoData.data.SubStepName"-->
@@ -11,9 +11,9 @@
       <!--      :desc="subStepInfoData.data.SubStepDesc"-->
       <!--    />-->
     </div>
-    <h1 ref="textDesRef" class="textCss">
+    <h3 ref="textDesRef" class="textCss">
       {{ TextDesc.data }}
-    </h1>
+    </h3>
     <nut-image class="itemCss" :src="subStepInfoData.data.SubStepInfo.TextImageUrl" fit="contain" postion="center" />
   </div>
 </template>
@@ -61,13 +61,13 @@
     margin: 10px auto;
   }
   .textDesTitleCss {
-    height: 80px;
+    height: 100px;
     position: relative;
     text-align: center;
   }
   .textCss {
     width: 80%;
-    height: 200px;
+    height: 300px;
     overflow: scroll;
     border: 1px;
     margin: auto;
