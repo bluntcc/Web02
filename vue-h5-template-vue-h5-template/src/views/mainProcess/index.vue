@@ -2,7 +2,8 @@
   <div class="allCss" :style="{ 'background-image': 'url(' + mainProcessBg.img + ')' }"> </div>
   <div class="mainProcessCss">
     <main-step v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.None" />
-    <game-step-mini v-if="getSubStepType(processStore.getStep, processStore.getSubStep) !== SubStepType.None" />
+    <result-step v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.Result" />
+    <game-step-mini v-if="getSubStepType(processStore.getStep, processStore.getSubStep) !== SubStepType.None && getSubStepType(processStore.getStep, processStore.getSubStep) !== SubStepType.Result" />
     <multi-box v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.MultiBox" />
     <TextDes v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.Text" />
     <PlayVideo v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.Video" />
@@ -19,6 +20,7 @@
   import TextDes from '/@/components/TextDes.vue';
   import PlayVideo from '/@/components/PlayVideo.vue';
   import MainStep from '/@/components/MainStep.vue';
+  import Resultstep from '/@/components/ResultStep.vue'
   const processStore = useProcessStore();
   import Hammer from 'hammerjs/hammer.min';
 

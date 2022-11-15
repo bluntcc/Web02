@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    copy: typeof import('./../src/components/MainStep copy.vue')['default']
     DragBox: typeof import('./../src/components/DragBox.vue')['default']
     GameStepMini: typeof import('./../src/components/GameStepMini.vue')['default']
     MainStep: typeof import('./../src/components/MainStep.vue')['default']
@@ -14,13 +15,11 @@ declare module '@vue/runtime-core' {
     MapPoint: typeof import('./../src/components/MapPoint.vue')['default']
     MultiBox: typeof import('./../src/components/MultiBox.vue')['default']
     PlayVideo: typeof import('./../src/components/PlayVideo.vue')['default']
+    ResultStep: typeof import('./../src/components/ResultStep.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SingleBox: typeof import('./../src/components/SingleBox.vue')['default']
     TextDes: typeof import('./../src/components/TextDes.vue')['default']
     TitleBar: typeof import('./../src/components/TitleBar/index.vue')['default']
-    VanButton: typeof import('vant/es')['Button']
-    VarButton: typeof import('@varlet/ui')['_ButtonComponent']
-    VarSpace: typeof import('@varlet/ui')['_SpaceComponent']
   }
 }
