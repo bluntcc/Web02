@@ -38,6 +38,11 @@ export const useProcessStore = defineStore({
         this.subStep = subStep;
         return true;
       }
+      //最后显示结果页面
+      if(subStep >= getSubStepNumber(step) && step >= getStepNumber() - 1){
+        this.subStep = -2;
+        return true;
+      }
       return false;
     },
     setPassInfo(step: number, subStep: number): void {

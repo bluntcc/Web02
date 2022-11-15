@@ -42,6 +42,8 @@ import {
   RadioGroup,
   Dialog,
   OverLay,
+  Collapse,
+  CollapseItem,
 } from '@nutui/nutui';
 
 export const nutUiComponents = [
@@ -86,4 +88,6 @@ export const nutUiComponents = [
   RadioGroup,
   Dialog,
   OverLay,
+  Collapse,
+  CollapseItem
 ];

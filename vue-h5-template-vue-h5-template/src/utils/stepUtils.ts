@@ -7,6 +7,7 @@ export enum SubStepType {
   'Text' = 1,
   'MultiBox' = 3,
   'Map' = 4,
+  'Result' = 5,
 }
 
 export type StepInfo = {
@@ -78,7 +79,8 @@ export function getSubStepDetail(step, subStep): VideoInfo | TextInfo | SingleBo
 }
 
 export function getSubStepType(step, subStep): SubStepType {
-  if (subStep < 0) return SubStepType.None;
+  if (subStep == -1) return SubStepType.None;
+  if (subStep == -2) return SubStepType.Result;
   return getSubStepInfo(step, subStep).SubStepType;
 }
 
