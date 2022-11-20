@@ -11,7 +11,7 @@
       <!--      :desc="subStepInfoData.data.SubStepDesc"-->
       <!--    />-->
     </div>
-    <h3 ref="textDesRef" class="textCss">
+    <h3 ref="textDesRef" class="textCss" style="white-space: pre-line;">
       {{ TextDesc.data }}
     </h3>
     <nut-image class="itemCss" :src="subStepInfoData.data.SubStepInfo.TextImageUrl" fit="contain" postion="center" />
