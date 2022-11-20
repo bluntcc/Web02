@@ -21,11 +21,21 @@ export const useProcessStore = defineStore({
     getSubStep: function (): number {
       return this.subStep;
     },
+    getPassArray: function (): boolean[][] {
+      //pass初始化问题
+      for(var i = 0; i < this.pass.length; i++){
+        if(this.pass[i] == undefined){
+          this.pass[i] = new Array(getSubStepNumber(i));
+        }
+      }
+      return this.pass;
+    },
   },
   actions: {
     setStepInfo(step: number, subStep: number): boolean {
+      //返回首页
       if (subStep < 0) {
-        subStep = -1;
+        this.subStep = -1;
         return true;
       }
       if (subStep >= getSubStepNumber(step) && step < getStepNumber() - 1) {

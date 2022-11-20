@@ -35,7 +35,7 @@
   });
 
   const mainProcessBg = reactive({
-    img: '/bg/MainProcessBg.jpg',
+    img: '/bg/MainProcessBg.png',
   });
 
   watch(processStore.$state, (v, o) => {
