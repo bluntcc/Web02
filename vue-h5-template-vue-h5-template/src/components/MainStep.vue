@@ -1,24 +1,30 @@
 <template>
+  <video-background poster="/bg/MainProcessBg.jpg" src="/video/backGround.mp4" style="position: absolute; height: 100%; width: 100%">
+  </video-background>
   <div class="mainDivCss">
     <div class="mainTitleCss">
       <h1 class="centreVHCss">{{ gameTitle }}</h1>
     </div>
-    <nut-button class="mainStepCss" v-for="(n, index) in stepInfo" block type="primary" :key="n" @click="EnterSubStep(index)">
-      {{ n.StepName }}</nut-button
-    >
+    <div>
+      <nut-button class="mainStepCss" v-for="(n, index) in stepInfo" block type="primary" :key="n" @click="EnterSubStep(index)">
+        {{ n.StepName }}
+      </nut-button>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup name="MainStep">
   import { getAllStepInfo, getGameTitle } from '/@/utils/stepUtils';
   import { useProcessStore } from '/@/store/modules/process';
+  import VideoBackground from 'vue-responsive-video-background-player'
+
   const processStore = useProcessStore();
 
   const stepInfo = getAllStepInfo();
   const gameTitle = getGameTitle();
   const EnterSubStep = function (step) {
     processStore.setStepInfo(step, 0);
-  };
+  }; 
 </script>
 
 <style scoped>

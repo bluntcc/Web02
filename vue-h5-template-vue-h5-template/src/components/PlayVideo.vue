@@ -1,5 +1,9 @@
 <template>
-  <nut-video class="playVideoCss" id="playVideo" :source="state.videoSource" :options="state.options" />
+  <nut-video class="playVideoCss" id="playVideo" :source="state.videoSource" :options="state.options" @play="playAction"/>
+  <div class="buttonRow">
+    <nut-button class="buttonBase" :disabled="!showNextStep" type="primary" @click="gotoNextStep">下一步</nut-button>
+    <nut-button class="buttonBase" plain type="warning" @click="gotoHomePage">返回主界面</nut-button>
+  </div>
 </template>
 
 <script lang="ts" setup name="PlayVideo">
@@ -16,7 +20,7 @@
     },
     options: {
       controls: true,
-      autoplay: true,
+      autoplay: false,
       muted: true,
       disabled: true,
     },
@@ -33,8 +37,25 @@
   watch(processStore.$state, (v, o) => {
     subStepInfoDetail = getSubStepDetail(processStore.step, processStore.subStep) as VideoInfo;
     state.videoSource.src = subStepInfoDetail.VideoUrl;
+    showNextStep.value = false;
     updateSrc();
   });
+
+  //判断下一步是否可以点击
+  const showNextStep = ref(false);
+  const playAction = function(){
+    showNextStep.value = true;
+  }
+
+  //点击确认进入下一步并记录结果为完成状态
+  const gotoNextStep = function(){
+    processStore.setPassInfo(processStore.step, processStore.subStep);
+    processStore.setStepInfo(processStore.step, processStore.subStep + 1);
+  }
+
+  const gotoHomePage = function(){
+    processStore.setStepInfo(0, -1);
+  }
 </script>
 
 <style scoped>
@@ -42,5 +63,12 @@
     width: 90%;
     height: 24%;
     margin: 0 auto 0;
+  }
+  .buttonRow{
+    text-align: center;
+  }
+  .buttonBase{
+    width: 250px;
+    margin: 20px;
   }
 </style>
