@@ -1,7 +1,7 @@
 <template>
+  <video-background poster="/bg/MainProcessBg.jpg" src="/video/backGround.mp4" style="position: absolute; height: 100%; width: 100%">
+  </video-background>
   <div class="mainDivCss">
-    <video-background class="videoContainer" poster="/bg/MainProcessBg.jpg" src="/video/backGround.mp4">
-    </video-background>
     <div class="mainTitleCss">
       <h1 class="centreVHCss">{{ gameTitle }}</h1>
     </div>
@@ -48,16 +48,5 @@
     left: 50%; /* 定位父级的50% */
     top: 50%;
     transform: translate(-50%, -50%); /*自己的50% */
-  }
-  .videoContainer{
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: block;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    background-size: cover;
   }
 </style>
