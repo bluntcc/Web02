@@ -2,7 +2,11 @@
   <div class="mapCss" :style="{ 'background-image': 'url(' + subStepInfoDetail.MapUrl + ')' }">
     <map-point
       class="mapPointCss"
-      :points-info="subStepInfoDetail.MapPoints[index]"
+      :index="index"
+      :point-title="subStepInfoDetail.MapPoints[index].pointTitle"
+      :point-location="subStepInfoDetail.MapPoints[index].location"
+      :desc-txt="subStepInfoDetail.MapPoints[index].infoDes"
+      :desc-image="subStepInfoDetail.MapPoints[index].infoImage"
       :key="'dragBox' + index"
       v-for="(x, index) in subStepInfoDetail.MapPoints"
     />

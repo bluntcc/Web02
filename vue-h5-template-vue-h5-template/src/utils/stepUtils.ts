@@ -8,21 +8,28 @@ export enum SubStepType {
   'MultiBox' = 3,
   'Map' = 4,
   'Result' = 5,
+  'MapDrag' = 6,
 }
 
 export type StepInfo = {
   StepName: string;
 };
 
-interface MapPointInfo {
+export type MapPointInfo = {
   location: number[];
   pointTitle: string;
   infoDes: string;
   infoImage: string;
-}
+};
 
-export const MapPointInfoHelper = function (): MapPointInfo {
-  return {} as MapPointInfo;
+export type MapDragPointInfo = {
+  location: number[];
+  pointTitle: string;
+  infoDes: string;
+  infoImage: string;
+  dragLocation: number[];
+  dragLocationTitle: string;
+  dragLineLocation: number[];
 };
 
 export type VideoInfo = {
@@ -56,7 +63,7 @@ export type MapInfo = {
   MapDesc: string;
   MapTitle: string;
   MapSize: number[];
-  MapPoints: number[][];
+  MapPoints: MapPointInfo[] | MapDragPointInfo[];
 };
 
 export type SubStepInfo = {

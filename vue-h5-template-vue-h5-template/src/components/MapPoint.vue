@@ -5,33 +5,62 @@
   </div>
 </template>
 
-<script lang="ts" setup name="MapPoint">
-  import { defineProps } from 'vue';
+<script lang="ts">
+  import { defineComponent } from 'vue';
   import { Dialog } from '@nutui/nutui';
-  import { MapPointInfoHelper } from '/@/utils/stepUtils';
-  const props = defineProps({
-    pointsInfo: {
-      type: MapPointInfoHelper,
-      required: true,
+
+  export default defineComponent({
+    name: 'MapPoint',
+    props: {
+      index: {
+        type: Number,
+        required: true,
+      },
+      pointTitle: {
+        type: String,
+        required: true,
+      },
+      pointLocation: {
+        type: Number[2],
+        required: true,
+      },
+      descTxt: {
+        type: String,
+        default: '',
+      },
+      descImage: {
+        type: String,
+        default: '',
+      },
+      enableButton: {
+        type: Boolean,
+        default: true,
+      },
+      mapCallbackMethod: {
+        type: Function,
+        default: function () {},
+      },
+    },
+    methods: {
+      clickMethod() {
+        if (!this.enableButton) return;
+        Dialog({
+          title: this.pointTitle,
+          content: "<p style='color:red'>" + this.descTxt + "</p><img style='width: 100px; height: 100px' src='" + this.descImage + "' />",
+          noCancelBtn: true,
+        });
+        console.log(this.index)
+        this.mapCallbackMethod(this.index);
+      },
     },
   });
-  const desc = props.pointsInfo.infoDes;
-  const pointTitle = props.pointsInfo.pointTitle;
-  const location = props.pointsInfo.location;
-  const infoImage = props.pointsInfo.infoImage;
-  const clickMethod = function () {
-    Dialog({
-      title: pointTitle,
-      content: "<p style='color:red'>" + desc + "</p><img style='width: 100px; height: 100px' src='" + infoImage + "' />",
-    });
-  };
 </script>
 
 <style scoped>
   .mapPointCss {
-    position: relative;
-    left: v-bind(location[0] + 'vw');
-    top: v-bind(location[1] + 'vw');
+    position: absolute;
+    left: v-bind(pointLocation[0] + 'vw');
+    top: v-bind(pointLocation[1] + 'vw');
     text-align: center;
   }
 </style>

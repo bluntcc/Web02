@@ -5,6 +5,8 @@ export enum SubStepType {
   'Text' = 1,
   'MultiBox' = 3,
   'Map' = 4,
+  'Result' = 5,
+  'MapDrag' = 6,
 }
 
 export const processData = {
@@ -173,7 +175,7 @@ export const processData = {
         {
           SubStepName: '高风险立即转移',
           SubStepDesc: '子阶段Map描述',
-          SubStepType: SubStepType.Map,
+          SubStepType: SubStepType.MapDrag,
           SubStepInfo: {
             MapUrl: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
             MapDesc: '视频1 描述',
@@ -183,14 +185,20 @@ export const processData = {
               {
                 location: [30, 30],
                 pointTitle: '家园',
-                infoDes: '家园描述',
+                infoDes: '迁移100人数确定',
                 infoImage: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+                dragLocation: [16, 45],
+                dragLocationTitle: '家园待迁移点',
+                dragLineLocation: [15, 31, 30, 20], //left,top,width,height
               },
               {
                 location: [50, 60],
                 pointTitle: '水厂',
                 infoDes: '水厂描述',
                 infoImage: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+                dragLocation: [40, 70],
+                dragLocationTitle: '水厂待迁移点',
+                dragLineLocation: [42, 62, 20, 20], //left,top,width,height
               },
             ],
           },
@@ -198,7 +206,7 @@ export const processData = {
         {
           SubStepName: '低风险立即转移',
           SubStepDesc: '子阶段Map描述',
-          SubStepType: SubStepType.Map,
+          SubStepType: SubStepType.MapDrag,
           SubStepInfo: {
             MapUrl: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
             MapDesc: '视频1 描述',
@@ -207,15 +215,21 @@ export const processData = {
             MapPoints: [
               {
                 location: [30, 30],
-                pointTitle: '家园',
-                infoDes: '家园描述',
+                pointTitle: '低风险家园',
+                infoDes: '低风险家园描述',
                 infoImage: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+                dragLocation: [16, 45],
+                dragLocationTitle: '低风险家园待迁移点',
+                dragLineLocation: [15, 31, 30, 20], //left,top,width,height
               },
               {
                 location: [50, 60],
-                pointTitle: '水厂',
-                infoDes: '水厂描述',
+                pointTitle: '低风险水厂',
+                infoDes: '低风险水厂描述',
                 infoImage: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+                dragLocation: [40, 70],
+                dragLocationTitle: '低风险水厂待迁移点',
+                dragLineLocation: [42, 62, 20, 20], //left,top,width,height
               },
             ],
           },

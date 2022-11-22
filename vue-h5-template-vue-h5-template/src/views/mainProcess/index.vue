@@ -9,6 +9,7 @@
     <PlayVideo v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.Video" />
     <single-box v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.SingleBox" />
     <Map v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.Map" />
+    <map-drag v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.MapDrag" />
   </div>
   <div class="panDownUpCss" ref="panDownUp"></div>
 </template>

@@ -7,12 +7,14 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    copy: typeof import('./../src/components/MainStep copy.vue')['default']
     DragBox: typeof import('./../src/components/DragBox.vue')['default']
     GameStepMini: typeof import('./../src/components/GameStepMini.vue')['default']
     MainStep: typeof import('./../src/components/MainStep.vue')['default']
     Map: typeof import('./../src/components/Map.vue')['default']
+    MapDrag: typeof import('./../src/components/MapDrag.vue')['default']
     MapPoint: typeof import('./../src/components/MapPoint.vue')['default']
+    MapPointAnimation: typeof import('./../src/components/MapPointAnimation.vue')['default']
+    MapPointAnimation2: typeof import('./../src/components/MapPointAnimation2.vue')['default']
     MultiBox: typeof import('./../src/components/MultiBox.vue')['default']
     PlayVideo: typeof import('./../src/components/PlayVideo.vue')['default']
     ResultStep: typeof import('./../src/components/ResultStep.vue')['default']
