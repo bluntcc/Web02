@@ -1,5 +1,5 @@
 <template>
-  <div class="allCss" :style="{ 'background-image': 'url(' + mainProcessBg.img + ')' }"> </div>
+  <div class="allCss" v-if="getSubStepType(processStore.getStep, processStore.getSubStep) !== SubStepType.None" :style="{ 'background-image': 'url(' + mainProcessBg.img + ')' }"> </div>
   <div class="mainProcessCss">
     <main-step v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.None" />
     <result-step v-if="getSubStepType(processStore.getStep, processStore.getSubStep) === SubStepType.Result" />
