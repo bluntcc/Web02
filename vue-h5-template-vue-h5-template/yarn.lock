@@ -8176,6 +8176,11 @@ vue-i18n@^9.2.2:
     "@intlify/vue-devtools" "9.2.2"
     "@vue/devtools-api" "^6.2.1"
 
+vue-responsive-video-background-player@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.npmmirror.com/vue-responsive-video-background-player/-/vue-responsive-video-background-player-2.3.1.tgz#c9e3b76aeddf06231f78ea45b6fd52589daadcdb"
+  integrity sha512-9IdFfmHe1cY0PvTw51sYcSO5+gPJya5einLIoktVzBMALEC3yok36X/1+hDfbgihapRYxz3fmyv1o5M1u+0xEA==
+
 vue-router@^4.0.12:
   version "4.0.15"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.15.tgz#b4a0661efe197f8c724e0f233308f8776e2c3667"

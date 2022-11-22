@@ -111,7 +111,7 @@ export const processData = {
           SubStepDesc: '子阶段Map描述',
           SubStepType: SubStepType.Map,
           SubStepInfo: {
-            MapUrl: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+            MapUrl: 'http://www.bigemap.com/map_source/satel/small/12.png',
             MapDesc: '视频1 描述',
             MapTitle: '视频1 Title',
             MapSize: [80, 100],
@@ -120,13 +120,13 @@ export const processData = {
                 location: [30, 30],
                 pointTitle: '家园',
                 infoDes: '家园描述',
-                infoImage: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+                infoImage: 'http://www.bigemap.com/map_source/satel/small/12.png',
               },
               {
                 location: [50, 60],
                 pointTitle: '水厂',
                 infoDes: '水厂描述',
-                infoImage: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+                infoImage: 'http://www.bigemap.com/map_source/satel/small/12.png',
               },
             ],
           },
@@ -177,7 +177,7 @@ export const processData = {
           SubStepDesc: '子阶段Map描述',
           SubStepType: SubStepType.MapDrag,
           SubStepInfo: {
-            MapUrl: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+            MapUrl: 'http://www.bigemap.com/map_source/satel/small/12.png',
             MapDesc: '视频1 描述',
             MapTitle: '视频1 Title',
             MapSize: [80, 100],
@@ -186,19 +186,19 @@ export const processData = {
                 location: [30, 30],
                 pointTitle: '家园',
                 infoDes: '迁移100人数确定',
-                infoImage: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+                infoImage: 'http://www.bigemap.com/map_source/satel/small/12.png',
                 dragLocation: [16, 45],
                 dragLocationTitle: '家园待迁移点',
-                dragLineLocation: [15, 31, 30, 20], //left,top,width,height
+                dragLineLocation: [15, 35, 30, 20], //left,top,width,height
               },
               {
                 location: [50, 60],
                 pointTitle: '水厂',
                 infoDes: '水厂描述',
-                infoImage: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+                infoImage: 'http://www.bigemap.com/map_source/satel/small/12.png',
                 dragLocation: [40, 70],
                 dragLocationTitle: '水厂待迁移点',
-                dragLineLocation: [42, 62, 20, 20], //left,top,width,height
+                dragLineLocation: [42, 66, 20, 20], //left,top,width,height
               },
             ],
           },
@@ -208,7 +208,7 @@ export const processData = {
           SubStepDesc: '子阶段Map描述',
           SubStepType: SubStepType.MapDrag,
           SubStepInfo: {
-            MapUrl: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+            MapUrl: 'http://www.bigemap.com/map_source/satel/small/12.png',
             MapDesc: '视频1 描述',
             MapTitle: '视频1 Title',
             MapSize: [80, 100],
@@ -217,19 +217,19 @@ export const processData = {
                 location: [30, 30],
                 pointTitle: '低风险家园',
                 infoDes: '低风险家园描述',
-                infoImage: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+                infoImage: 'http://www.bigemap.com/map_source/satel/small/12.png',
                 dragLocation: [16, 45],
                 dragLocationTitle: '低风险家园待迁移点',
-                dragLineLocation: [15, 31, 30, 20], //left,top,width,height
+                dragLineLocation: [15, 35, 30, 20], //left,top,width,height
               },
               {
                 location: [50, 60],
                 pointTitle: '低风险水厂',
                 infoDes: '低风险水厂描述',
-                infoImage: 'http://news.sznews.com/pic/2021-05/24/45f54a73-b171-46e9-90f9-fc4723225f3f.jpg',
+                infoImage: 'http://www.bigemap.com/map_source/satel/small/12.png',
                 dragLocation: [40, 70],
                 dragLocationTitle: '低风险水厂待迁移点',
-                dragLineLocation: [42, 62, 20, 20], //left,top,width,height
+                dragLineLocation: [42, 66, 20, 20], //left,top,width,height
               },
             ],
           },

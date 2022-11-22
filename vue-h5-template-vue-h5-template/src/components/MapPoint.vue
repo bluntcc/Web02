@@ -1,16 +1,21 @@
 <template>
   <div class="mapPointCss" @click="clickMethod">
-    <nut-icon name="location2" />
-    <h5>{{ pointTitle }}</h5>
+    <Vue3Lottie v-if="enableButton" animation-link="https://assets8.lottiefiles.com/packages/lf20_xedgcnvz.json" />
+    <Vue3Lottie v-if="!enableButton" animation-link="https://assets8.lottiefiles.com/packages/lf20_hdy5hmdn.json"></Vue3Lottie>
+    <h5 class="titleCss2">{{ pointTitle }}</h5>
   </div>
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue';
   import { Dialog } from '@nutui/nutui';
+  import { Vue3Lottie } from 'vue3-lottie';
 
   export default defineComponent({
     name: 'MapPoint',
+    components: {
+      Vue3Lottie,
+    },
     props: {
       index: {
         type: Number,
@@ -49,7 +54,6 @@
           content: "<p style='color:red'>" + this.descTxt + "</p><img style='width: 100px; height: 100px' src='" + this.descImage + "' />",
           noCancelBtn: true,
         });
-        console.log(this.index)
         this.mapCallbackMethod(this.index);
       },
     },
@@ -62,5 +66,8 @@
     left: v-bind(pointLocation[0] + 'vw');
     top: v-bind(pointLocation[1] + 'vw');
     text-align: center;
+  }
+  .titleCss2 {
+    color: white;
   }
 </style>
